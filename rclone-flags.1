@@ -1,0 +1,247 @@
+.Dd January 21, 2021
+.Dt RCLONE-FLAGS 1
+.Os
+.Sh NAME
+.Nm rclone-flags
+.Nd detailed list of flags used by rclone
+.Sh SYNOPSIS
+.Nm
+.Sh DESCRIPTION
+\" Options that take parameters can have the values passed in two ways,
+\" --option=value or --option value. However boolean (true/false)
+\" options behave slightly differently to the other options in that
+\" --boolean sets the option to true and the absence of the flag sets
+\" it to false.  It is also possible to specify --boolean=false or
+\" --boolean=true.  Note that --boolean false is not valid - this is
+\" parsed as --boolean and the false is parsed as an extra command
+\" line argument for rclone.
+
+\" Options which use TIME use the go time parser.  A duration string is a
+\" possibly signed sequence of decimal numbers, each with optional
+\" fraction and a unit suffix, such as "300ms", "-1.5h" or "2h45m". Valid
+\" time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
+
+\" Options which use SIZE use kByte by default.  However, a suffix of b
+\" for bytes, k for kBytes, M for MBytes, G for GBytes, T for
+\" TBytes and P for PBytes may be used.  These are the binary units, e.g.
+\" 1, 2\*\*10, 2\*\*20, 2\*\*30 respectively.
+
+.Bl -tag -width Ds
+\" .It Fl Fl backup-dir Ar dir
+\" This will contain any files which would have been overwritten or deleted by
+\" .Cm sync ,
+\" .Cm copy
+\" or
+\" .Cm move.
+\" Original hierarchy is preserved.
+\" If
+\" .Fl Fl suffix
+\" is set, the moved files will have the suffix added
+\" to them.  If there is a file with the same path (after the suffix has
+\" been added) in DIR, then it will be overwritten.
+\" .Pp
+\" The remote in use must support server-side move or copy and you must
+\" use the same remote as the destination of the sync.  The backup
+\" directory must not overlap the destination directory.
+\" .It Fl Fl bind Ar string
+\" Local address to bind to for outgoing connections.  This can be an
+\" IPv4 address (1.2.3.4), an IPv6 address (1234::789A) or host name.  If
+\" the host name doesn't resolve or resolves to more than one IP address
+\" it will give an error.
+\" .It Fl Fl bwlimit Ar bandwidth_spec
+\" Controls the bandwidth limit. For the duration of the session,
+\" specify the desired bandwidth in kBytes/s (not kBit/s !!), or use a suffix
+\" .Ar b|k|M|G (in Bytes).
+\" The
+\" default is 0 which means to not limit bandwidth.
+\" For example, to limit bandwidth usage to 10 MBytes/s use
+\" .Fl Fl bwlimit Ar 10M
+\" .Pp
+\" To set limits at certain times,specify a "timetable" by format your
+\" entries as
+\" .Ar bandwidth
+\" .Op Ar weekday- Ns
+\" .Ar HH:MM Ns , Op Ar weekday- Ns
+\" .Ar HH:MM ...
+\" where : HH:MM is an hour from 00:00 to 23:59.
+\" An example of a typical timetable to avoid link saturation during daytime
+\" working hours could be:
+\" .Dl Fl Fl bwlimit "08:00,512 12:00,10M 13:00,512 18:00,30M 23:00,off"
+\" It mean that, the transfer bandwidth will be set to 512kBytes/sec on Monday.
+\" It will raise to 10Mbytes/s before the end of Friday.
+\" At 10:00 on Sunday it will be set to 1Mbyte/s.
+\" From 20:00 at Sunday will be unlimited.
+\" .Pp
+\" Timeslots without weekday are extended to whole week.
+\" So this:
+\" .Dl Fl Fl bwlimit "Mon-00:00,512 12:00,1M Sun-20:00,off"
+\" Is equal to this:
+\" .Dl Fl Fl bwlimit "Mon-00:00,512Mon-12:00,1M Tue-12:00,1M Wed-12:00,1M Thu-12:00,1M Fri-12:00,1M Sat-12:00,1M Sun-12:00,1M Sun-20:00,off"
+\" .Pp
+\" Bandwidth limits only apply to the data transfer. They don't apply to the
+\" bandwidth of the directory listings etc.
+\" .Pp
+\" On Unix systems (Linux, macOS, …) the bandwidth limiter can be toggled by
+\" sending a SIGUSR2 signal to rclone. This allows to remove the limitations
+\" of a long running rclone transfer and to restore it back to the value specified
+\" with --bwlimit quickly when needed. Assuming there is only one rclone instance
+\" running, you can toggle the limiter like this:
+\" .Dl kill -SIGUSR2 $(pidof rclone)
+\" .Pp
+\" If you configure rclone with a [remote control](/rc) then you can use
+\" change the bwlimit dynamically:
+\" .Dl rclone rc core/bwlimit rate=1M
+\" .It Fl Fl -bwlimit-file=bandwidth_spec
+\" controls per file bandwidth limit. See
+\" .Fl Fl bwlimit .
+\" Both options can be used. Note that if a schedule is provided the file will use the schedule in
+\" effect at the start of the transfer.
+\" .It Fl Fl -buffer-size Arg size
+\" Use this sized buffer to speed up file transfers.  Each
+\" .Fl Fl transfer
+\" will use this much memory for buffering.
+
+\" When using
+\" .Cm mount
+\" or
+\" .Cm cmount e,
+\" ach open file descriptor will use this much memory for buffering. See
+\" .Cm mount
+\" for more details.
+\" .Pp
+\" Set to 0 to disable the buffering for the minimum memory usage.
+\" .Pp
+\" Note that the memory allocation of the buffers is influenced by
+\" .Fl Fl use-mmap.
+\" .It Fl Fl check-first
+\" If this flag is set then in a
+\" .Cm sync
+\" .Cm copy
+\" or
+\" .Cm move ,
+\" .Nm rclone
+\" will do all the checks to see whether files need to be transferred before
+\" doing any of the transfers. Normally rclone would start running transfers as
+\" soon as possible.
+\" .Pp
+\" This flag can be useful on IO limited systems where transfers
+\" interfere with checking.
+\" .Pp
+\" Using this flag can use more memory as it effectively sets
+\" .Fl Fl max-backlog
+\" to infinite. This means that all the info on the
+\" objects to transfer is held in memory before the transfers start.
+\" .It Fl Fl checkers Ar N
+\" Number of checkers to run in parallel, default is 8. Checkers do the equality
+\" checking of files during a sync.  For some storage systems (e.g. S3,
+\" Swift, Dropbox) this can take a significant amount of time so they are
+\" run in parallel.
+\" .It Fl c, Fl Fl checksum
+\" By default, modification time and size of files are used to compare file. If this flag is sset, file hash and size are used instead.
+\" .Pp
+\" This is useful when the remote doesn't support setting modified time
+\" and a more accurate sync is desired than just checking the file size.
+\" This is very useful when transferring between remotes which store the
+\" same hash type on the object, e.g. Drive and Swift. For details of which
+\" remotes support which hash type see the table in the [overview
+\" section](/overview/). For example
+\" .Dl rclone --checksum sync s3:/bucket swift:/bucket
+\" would run much quicker than without
+\" .Fl Fl checksum
+\" .Pp
+\" When using this flag, rclone won't update mtimes of remote files if
+\" they are incorrect as it would normally.
+.It Fl Fl compare-dest Ar dir
+When using
+.Cm sync ,
+.Cm copy
+or
+.Cm move
+.Ar dir
+is checked in addition to the
+destination for files. If a file identical to the source is found that
+file is NOT copied from source. This is useful to copy just files that
+have changed since the last backup.
+.Pp
+You must use the same remote as the destination of the sync.  The
+compare directory must not overlap the destination directory.
+See
+.Fl Fl copy-dest
+and
+.Fl Fl backup-dir .
+\" .It Fl Fl -config=CONFIG_FILE TODO
+\" .It Fl Fl -contimeout=TIME TODO
+\" .It Fl --copy-dest=DIR TODO
+\" .It Fl --dedupe-mode MODE TODO
+\" .It Fl --disable FEATURE,FEATURE,... TODO
+\" .It Fl -n, --dry-run TODO
+\" .It Fl --expect-continue-timeout=TIME TODO
+\" .It Fl --error-on-no-transfer TODO
+\" .It Fl --header TODO
+\" .It Fl --header-download TODO
+\" .It Fl --header-upload TODO
+\" .It Fl --ignore-case-sync TODO
+\" .It Fl --ignore-checksum TODO
+\" .It Fl --ignore-existing TODO
+\" .It Fl --ignore-size TODO
+\" .It Fl -I, --ignore-times TODO
+\" .It Fl --immutable TODO
+\" .It Fl -i / --interactive {#interactive}
+\" .It Fl --leave-root #TODO
+\" .It Fl --log-file=FILE TODO
+\" .It Fl --log-format LIST TODO
+\" .It Fl --log-level LEVEL TODO
+\" .It Fl --use-json-log TODO
+\" .It Fl --low-level-retries NUMBER TODO
+\" .It Fl --max-backlog=N TODO
+\" .It Fl --max-delete=N TODO
+\" .It Fl --max-depth=N TODO
+\" .It Fl --max-duration=TIME TODO
+\" .It Fl --max-transfer=SIZE TODO
+\" .It Fl --cutoff-mode=hard|soft|cautious TODO
+\" .It Fl --modify-window=TIME TODO
+\" .It Fl --multi-thread-cutoff=SIZE TODO
+\" .It Fl --multi-thread-streams=N TODO
+\" .It Fl --no-check-dest TODO
+\" .It Fl --no-gzip-encoding TODO
+\" .It Fl --no-traverse TODO
+\" .It Fl --no-unicode-normalization TODO
+\" .It Fl --no-update-modtime TODO
+\" .It Fl --order-by string TODO
+\" .It Fl --password-command SpaceSepList TODO
+\" .It Fl -P, --progress TODO
+\" .It Fl --progress-terminal-title TODO
+\" .It Fl -q, --quiet TODO
+\" .It Fl --refresh-times TODO
+\" .It Fl --retries int TODO
+\" .It Fl --retries-sleep=TIME TODO
+\" .It Fl --size-only TODO
+\" .It Fl --stats=TIME TODO
+\" .It Fl --stats-file-name-length integer TODO
+\" .It Fl --stats-log-level string TODO
+\" .It Fl --stats-one-line TODO
+\" .It Fl --stats-one-line-date TODO
+\" .It Fl --stats-one-line-date-format TODO
+\" .It Fl --stats-unit=bits|bytes TODO
+\" .It Fl --suffix=SUFFIX TODO
+\" .It Fl --suffix-keep-extension TODO
+\" .It Fl --syslog TODO
+\" .It Fl --syslog-facility string TODO
+\" .It Fl --tpslimit float TODO
+\" .It Fl --tpslimit-burst int TODO
+\" .It Fl --track-renames TODO
+\" .It Fl --track-renames-strategy (hash,modtime,leaf,size) TODO
+\" .It Fl --delete-(before,during,after) TODO
+\" .It Fl --fast-list TODO
+\" .It Fl --timeout=TIME TODO
+\" .It Fl --transfers=N TODO
+\" .It Fl -u, --update TODO
+\" .It Fl --use-mmap TODO
+\" .It Fl --use-server-modtime TODO
+\" .It Fl -v, -vv, --verbose TODO
+\" .It Fl -V, --version TODO
+\" .It Fl --ca-cert string
+\" .It Fl --client-cert string
+\" .It Fl --client-key string
+\" .It Fl --no-check-certificate=true/false TODO
+.El
