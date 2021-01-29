@@ -10,1205 +10,1205 @@
 .Ar command
 .Op Ar parameters ...
 .Sh DESCRIPTION
-\" .Nm
-\" is a command line program to manage files between two storage systems. It supports a wide range of cloud storage providers, hence being is sometimes called
-\" .Qq The Swiss army knife of cloud storage .
-\" It provides functionnality similar to
-\" .Xr rsync 1 ,
-\" .Xr cp 1 ,
-\" .Xr rm  1 ,
-\" .Xr mv 1 ,
-\" .Xr mount 1 ,
-\" .Xr ls 1 ,
-\" .Xr ncdu 1 ,
-\" .Xr tree 1 ,
-\" .Xr rm 1 , and
-\" .Xr cat 1 .
-\" As such, it can be used to backup or restore data, mirror storage system, mount cloud storage as a disk,
-\" account for data and union filesystems.
-\" .Pp
-\" .Ss Configuration
-\" This is first step, which can easily be done by running :
-\" .Dl rclone config
-\" .Pp
-\" Details instructions for configuring the numerous cloud providers are given in
-\" .Xr rclone-config 1 .
-\" .Pp
-\" .Ss Running commands
-\" The commands are as follows:
-\" .Bl -tag
-\" .It Cm about
-\" Get quota information from the remote
-\" .It Cm authorize
-\" Remote authorization
-\" .It Cm  backend
-\" Run a backend specific command.
-\" .It Cm  cat
-\" Concatenates any files and sends them to stdout.
-\" .It Cm  check
-\" Checks the files in the source and destination match.
-\" .It Cm  cleanup
-\" Clean up the remote if possible.
-\" .It Cm  config
-\" Enter an interactive configuration session.
-\" .It Cm  copy
-\" Copy files from source to dest, skipping already copied.
-\" .It Cm  copyto
-\" Copy files from source to dest, skipping already copied.
-\" .It Cm  copyurl
-\" Copy url content to dest.
-\" .It Cm  cryptcheck
-\" Cryptcheck checks the integrity of a crypted remote.
-\" .It Cm  cryptdecode
-\" Cryptdecode returns unencrypted file names.
-\" .It Cm  dedupe
-\" Interactively find duplicate filenames and delete/rename them.
-\" .It Cm  delete
-\" Remove the contents of path.
-\" .It Cm  deletefile
-\" Remove a single file from remote.
-\" .It Cm  genautocomplete
-\" Output completion script for a given shell.
-\" .It Cm  gendocs
-\" Output markdown docs for rclone to the directory supplied.
-\" .It Cm  hashsum
-\" Produces a hashsum file for all the objects in the path.
-\" .It Cm  help
-\" Show help for rclone commands, flags and backends.
-\" .It Cm  link
-\" Generate public link to file/folder.
-\" .It Cm  listremotes
-\" List all the remotes in the config file.
-\" .It Cm  ls
-\" List the objects in the path with size and path.
-\" .It Cm  lsd
-\" List all directories/containers/buckets in the path.
-\" .It Cm  lsf
-\" List directories and objects in remote:path formatted for parsing.
-\" .It Cm  lsjson
-\" List directories and objects in the path in JSON format.
-\" .It Cm  lsl
-\" List the objects in path with modification time, size and path.
-\" .It Cm  md5sum
-\" Produces an md5sum file for all the objects in the path.
-\" .It Cm  mkdir
-\" Make the path if it doesn't already exist.
-\" .It Cm  mount
-\" Mount the remote as file system on a mountpoint.
-\" .It Cm  move
-\" Move files from source to dest.
-\" .It Cm  moveto
-\" Move file or directory from source to dest.
-\" .It Cm  ncdu
-\" Explore a remote with a text based user interface.
-\" .It Cm  obscure
-\" Obscure password for use in the rclone config file.
-\" .It Cm  purge
-\" Remove the path and all of its contents.
-\" .It Cm  rc
-\" Run a command against a running rclone.
-\" .It Cm  rcat
-\" Copies standard input to file on remote.
-\" .It Cm  rcd
-\" Run rclone listening to remote control commands only.
-\" .It Cm  rmdir
-\" Remove the path if empty.
-\" .It Cm  rmdirs
-\" Remove empty directories under the path.
-\" .It Cm  serve
-\" Serve a remote over a protocol.
-\" .It Cm  settier
-\" Changes storage class/tier of objects in remote.
-\" .It Cm  sha1sum
-\" Produces an sha1sum file for all the objects in the path.
-\" .It Cm  size
-\" Prints the total size and number of objects in remote:path.
-\" .It Cm  sync
-\" Make source and dest identical, modifying destination only.
-\" .It Cm  touch
-\" Create new file or change file modification time.
-\" .It Cm  tree
-\" List the contents of the remote in a tree like fashion.
-\" .It Cm  version
-\" Show the version number.
-\" .El
+.Nm
+is a command line program to manage files between two storage systems. It supports a wide range of cloud storage providers, hence being is sometimes called
+.Qq The Swiss army knife of cloud storage .
+It provides functionnality similar to
+.Xr rsync 1 ,
+.Xr cp 1 ,
+.Xr rm  1 ,
+.Xr mv 1 ,
+.Xr mount 1 ,
+.Xr ls 1 ,
+.Xr ncdu 1 ,
+.Xr tree 1 ,
+.Xr rm 1 , and
+.Xr cat 1 .
+As such, it can be used to backup or restore data, mirror storage system, mount cloud storage as a disk,
+account for data and union filesystems.
+.Pp
+.Ss Configuration
+This is first step, which can easily be done by running :
+.Dl rclone config
+.Pp
+Details instructions for configuring the numerous cloud providers are given in
+.Xr rclone-config 1 .
+.Pp
+.Ss Running commands
+The commands are as follows:
+.Bl -tag
+.It Cm about
+Get quota information from the remote
+.It Cm authorize
+Remote authorization
+.It Cm  backend
+Run a backend specific command.
+.It Cm  cat
+Concatenates any files and sends them to stdout.
+.It Cm  check
+Checks the files in the source and destination match.
+.It Cm  cleanup
+Clean up the remote if possible.
+.It Cm  config
+Enter an interactive configuration session.
+.It Cm  copy
+Copy files from source to dest, skipping already copied.
+.It Cm  copyto
+Copy files from source to dest, skipping already copied.
+.It Cm  copyurl
+Copy url content to dest.
+.It Cm  cryptcheck
+Cryptcheck checks the integrity of a crypted remote.
+.It Cm  cryptdecode
+Cryptdecode returns unencrypted file names.
+.It Cm  dedupe
+Interactively find duplicate filenames and delete/rename them.
+.It Cm  delete
+Remove the contents of path.
+.It Cm  deletefile
+Remove a single file from remote.
+.It Cm  genautocomplete
+Output completion script for a given shell.
+.It Cm  gendocs
+Output markdown docs for rclone to the directory supplied.
+.It Cm  hashsum
+Produces a hashsum file for all the objects in the path.
+.It Cm  help
+Show help for rclone commands, flags and backends.
+.It Cm  link
+Generate public link to file/folder.
+.It Cm  listremotes
+List all the remotes in the config file.
+.It Cm  ls
+List the objects in the path with size and path.
+.It Cm  lsd
+List all directories/containers/buckets in the path.
+.It Cm  lsf
+List directories and objects in remote:path formatted for parsing.
+.It Cm  lsjson
+List directories and objects in the path in JSON format.
+.It Cm  lsl
+List the objects in path with modification time, size and path.
+.It Cm  md5sum
+Produces an md5sum file for all the objects in the path.
+.It Cm  mkdir
+Make the path if it doesn't already exist.
+.It Cm  mount
+Mount the remote as file system on a mountpoint.
+.It Cm  move
+Move files from source to dest.
+.It Cm  moveto
+Move file or directory from source to dest.
+.It Cm  ncdu
+Explore a remote with a text based user interface.
+.It Cm  obscure
+Obscure password for use in the rclone config file.
+.It Cm  purge
+Remove the path and all of its contents.
+.It Cm  rc
+Run a command against a running rclone.
+.It Cm  rcat
+Copies standard input to file on remote.
+.It Cm  rcd
+Run rclone listening to remote control commands only.
+.It Cm  rmdir
+Remove the path if empty.
+.It Cm  rmdirs
+Remove empty directories under the path.
+.It Cm  serve
+Serve a remote over a protocol.
+.It Cm  settier
+Changes storage class/tier of objects in remote.
+.It Cm  sha1sum
+Produces an sha1sum file for all the objects in the path.
+.It Cm  size
+Prints the total size and number of objects in remote:path.
+.It Cm  sync
+Make source and dest identical, modifying destination only.
+.It Cm  touch
+Create new file or change file modification time.
+.It Cm  tree
+List the contents of the remote in a tree like fashion.
+.It Cm  version
+Show the version number.
+.El
 
 
-\" .Ss Remote paths
-\" On local file system, the leading '/' will differentiate between relative directories, like
-\" .Em path/to/dir
-\" or absolute, like
-\" .Em /path/to/dir .
-\" .Pp
-\" However, the leading '/' is ignored on most remotes, so
-\" .Em remote:path/to/dir
-\" and
-\" .Em remote:/path/to/dir
-\" refers to the same directory. This is not the case for fTP, SFTP, Dropbox for business :
-\" .Em remote:path/to/dir
-\" refers to your home directory, while
-\" .Em remote:/path/to/dir
-\" referts to a directory in the root
-\" .Pp
-\" An advanced form for creating remotes on the fly is to use
-\" .Em :backend:path/to/dir .
-\" For example, listing all the directories in the root of folder on
-\" .Lk https://pub.rclone.org/ :
-\" .Dl rclone lsd --http-url https://pub.rclone.org :http:
-\" Other examples are given in
-\" .Sx
-\" .Pp
-\"  Remote names may only contain 0-9, A-Z ,a-z ,_ , - and space. They  may not start with -.
-\" .Sx Special characters
-\" Spaces or shell metacharacters (e.g. *, ?, $, ', ", etc.) must be quoted by single quotes (').
-\" If you want to send a single quote ('), you will need to used a double quote (").
-\" .Pp
-\" As a colon (:) mark a remote name in
-\" .Nm ,
-\" this may conflict with some filenames. Use either the absolute path or prefix the filename with ./, like this :
-\" .Dl    rclone sync -i ./sync:me remote:path
-\" .Dl    rclone sync -i /full/path/to/sync:me remote:path
-\" .Ss Server Side Copy
-\" Most remotes (but not all) support server-side copy.
-\" This means that copying one folder to another will be done in-place by the server.
-\" Remotes which don't support server-side copy will download and
-\" re-upload in this case.
-\" .Pp
-\" Server side copies are used with
-\" .Cm sync
-\" and
-\" .Cm copy
-\" and will be
-\" identified in the log when using the
-\" .Fl v
-\" flag.  The
-\" .Cm move
-\" command
-\" may also use them if remote doesn't support server-side move directly.
-\" This is done by issuing a server-side copy then a delete which is much
-\" quicker than a download and re-upload.
-\" .Pp
-\" Server side copies will only be attempted if the remote names are the
-\" same.
-\" .Ss Options
-\" Flags are briefly described here. Please see
-\" .Xr rclone-flags 1
-\" for a detailed exaplanation on each one of them .
-\" .Ss Non Backend Flags
-\" These flags are available for every command.
-\" .Bl -tag -width Ds
-\" .It Fl Fl ask-password
-\" Allow prompt for password for encrypted configuration. (default true)
-\" .It Fl Fl auto-confirm
-\" If enabled, do not request console confirmation.
-\" .It Fl Fl backup-dir Ar string
-\" Make backups into hierarchy based in DIR.
-\" .It Fl Fl bind Ar string
-\" Local address to bind to for outgoing connections, IPv4, IPv6 or name.
-\" .It Fl Fl buffer-size Ar SizeSuffix
-\" In memory buffer size when reading files for each --transfer. (default 16M)
-\" .It Fl Fl bwlimit Ar BwTimetable
-\" Bandwidth limit in kBytes/s, or use suffix b|k|M|G or a full timetable.
-\" .It Fl Fl bwlimit-file Ar BwTimetable
-\" Bandwidth limit per file in kBytes/s, or use suffix b|k|M|G or a full timetable.
-\" .It Fl Fl ca-cert Ar string
-\" CA certificate used to verify servers
-\" .It Fl Fl cache-dir Ar string
-\" Directory rclone will use for caching. (default "$HOME/.cache/rclone")
-\" .It Fl Fl check-first
-\" Do all the checks before starting transfers.
-\" .It Fl Fl checkers Ar int
-\" Number of checkers to run in parallel. (default 8)
-\" .It Fl c , Fl Fl checksum
-\" Skip based on checksum (if available) & size, not mod-time & size
-\" .It Fl Fl client-cert Ar string
-\" Client SSL certificate (PEM) for mutual TLS auth
-\" .It Fl Fl client-key Ar string
-\" Client SSL private key (PEM) for mutual TLS auth
-\" .It Fl Fl compare-dest Ar string
-\" Include additional server-side path during comparison.
-\" .It Fl Fl config Ar string
-\" Config file. (default "$HOME/.config/rclone/rclone.conf")
-\" .It Fl Fl contimeout Ar duration
-\" Connect timeout (default 1m0s)
-\" .It Fl Fl copy-dest Ar string
-\" Implies --compare-dest but also copies files from path into destination.
-\" .It Fl Fl cpuprofile Ar string
-\" Write cpu profile to file
-\" .It Fl Fl cutoff-mode Ar string
-\" Mode to stop transfers when reaching the max transfer limit HARD|SOFT|CAUTIOUS (default "HARD")
-\" .It Fl Fl delete-after
-\" When synchronizing, delete files on destination after transferring (default)
-\" .It Fl Fl delete-before
-\" When synchronizing, delete files on destination before transferring
-\" .It Fl Fl delete-during
-\" When synchronizing, delete files during transfer
-\" .It Fl Fl delete-excluded
-\" Delete files on dest excluded from sync
-\" .It Fl Fl disable Ar string
-\" Disable a comma separated list of features.  Use help to see a list.
-\" .It Fl n , Fl Fl dry-run
-\" Do a trial run with no permanent changes
-\" .It Fl Fl dump Ar DumpFlags
-\" List of items to dump from: headers,bodies,requests,responses,auth,filters,goroutines,openfiles
-\" .It Fl Fl dump-bodies
-\" Dump HTTP headers and bodies - may contain sensitive info
-\" .It Fl Fl dump-headers
-\" Dump HTTP headers - may contain sensitive info
-\" .It Fl Fl error-on-no-transfer
-\" Sets exit code 9 if no files are transferred, useful in scripts
-\" .It Fl Fl exclude Ar stringArray
-\" Exclude files matching pattern
-\" .It Fl Fl exclude-from Ar stringArray
-\" Read exclude patterns from file (use - to read from stdin)
-\" .It Fl Fl exclude-if-present Ar string
-\" Exclude directories if filename is present
-\" .It Fl Fl expect-continue-timeout Ar duration
-\" Timeout when using expect / 100-continue in HTTP (default 1s)
-\" .It Fl Fl fast-list
-\" Use recursive list if available. Uses more memory but fewer transactions.
-\" .It Fl Fl files-from Ar stringArray
-\" Read list of source-file names from file (use - to read from stdin)
-\" .It Fl Fl files-from-raw Ar stringArray
-\" Read list of source-file names from file without any processing of lines (use - to read from stdin)
-\" .It Fl f , Fl Fl filter Ar stringArray
-\" Add a file-filtering rule
-\" .It Fl Fl filter-from Ar stringArray
-\" Read filtering patterns from a file (use - to read from stdin)
-\" .It Fl Fl header Ar stringArray
-\" Set HTTP header for all transactions
-\" .It Fl Fl header-download Ar stringArray
-\" Set HTTP header for download transactions
-\" .It Fl Fl header-upload Ar stringArray
-\" Set HTTP header for upload transactions
-\" .It Fl Fl ignore-case
-\" Ignore case in filters (case insensitive)
-\" .It Fl Fl ignore-case-sync
-\" Ignore case when synchronizing
-\" .It Fl Fl ignore-checksum
-\" Skip post copy check of checksums.
-\" .It Fl Fl ignore-errors
-\" delete even if there are I/O errors
-\" .It Fl Fl ignore-existing
-\" Skip all files that exist on destination
-\" .It Fl Fl ignore-size
-\" Ignore size when skipping use mod-time or checksum.
-\" .It Fl I , Fl Fl ignore-times
-\" Don't skip files that match size and time - transfer all files
-\" .It Fl Fl immutable
-\" Do not modify files. Fail if existing files have been modified.
-\" .It Fl Fl include Ar stringArray
-\" Include files matching pattern
-\" .It Fl Fl include-from Ar stringArray
-\" Read include patterns from file (use - to read from stdin)
-\" .It Fl i , Fl Fl interactive
-\" Enable interactive mode
-\" .It Fl Fl log-file Ar string
-\" Log everything to this file
-\" .It Fl Fl log-format Ar string
-\" Comma separated list of log format options (default "date,time")
-\" .It Fl Fl log-level Ar string
-\" Log level DEBUG|INFO|NOTICE|ERROR (default "NOTICE")
-\" .It Fl Fl low-level-retries Ar int
-\" Number of low level retries to do. (default 10)
-\" .It Fl Fl max-age Ar Duration
-\" Only transfer files younger than this in s or suffix ms|s|m|h|d|w|M|y (default off)
-\" .It Fl Fl max-backlog Ar int
-\" Maximum number of objects in sync or check backlog. (default 10000)
-\" .It Fl Fl max-delete Ar int
-\" When synchronizing, limit the number of deletes (default -1)
-\" .It Fl Fl max-depth Ar int
-\" If set limits the recursion depth to this. (default -1)
-\" .It Fl Fl max-duration Ar duration
-\" Maximum duration rclone will transfer data for.
-\" .It Fl Fl max-size SizeSuffix
-\" Only transfer files smaller than this in k or suffix b|k|M|G (default off)
-\" .It Fl Fl max-stats-groups Ar int
-\" Maximum number of stats groups to keep in memory. On max oldest is discarded. (default 1000)
-\" .It Fl Fl max-transfer SizeSuffix
-\" Maximum size of data to transfer. (default off)
-\" .It Fl Fl memprofile Ar string
-\" Write memory profile to file
-\" .It Fl Fl min-age Ar Duration
-\" Only transfer files older than this in s or suffix ms|s|m|h|d|w|M|y (default off)
-\" .It Fl Fl min-size SizeSuffix
-\" Only transfer files bigger than this in k or suffix b|k|M|G (default off)
-\" .It Fl Fl modify-window Ar duration
-\" Max time diff to be considered the same (default 1ns)
-\" .It Fl Fl multi-thread-cutoff SizeSuffix
-\" Use multi-thread downloads for files above this size. (default 250M)
-\" .It Fl Fl multi-thread-streams Ar int
-\" Max number of streams to use for multi-thread downloads. (default 4)
-\" .It Fl Fl no-check-certificate
-\" Do not verify the server SSL certificate. Insecure.
-\" .It Fl Fl no-check-dest
-\" Don't check the destination, copy regardless.
-\" .It Fl Fl no-gzip-encoding
-\" Don't set Accept-Encoding: gzip.
-\" .It Fl Fl no-traverse
-\" Don't traverse destination file system on copy.
-\" .It Fl Fl no-unicode-normalization
-\" Don't normalize unicode characters in filenames.
-\" .It Fl Fl no-update-modtime
-\" Don't update destination mod-time if files identical.
-\" .It Fl Fl order-by Ar string
-\" Instructions on how to order the transfers, e.g. 'size,descending'
-\" .It Fl Fl password-command SpaceSepList
-\" Command for supplying password for encrypted configuration.
-\" .It Fl P , Fl Fl progress
-\" Show progress during transfer.
-\" .It Fl q , Fl Fl quiet
-\" Print as little stuff as possible
-\" .It Fl Fl rc
-\" Enable the remote control server.
-\" .It Fl Fl rc-addr Ar string
-\" IPaddress:Port or :Port to bind server to. (default "localhost:5572")
-\" .It Fl Fl rc-allow-origin Ar string
-\" Set the allowed origin for CORS.
-\" .It Fl Fl rc-baseurl Ar string
-\" Prefix for URLs - leave blank for root.
-\" .It Fl Fl rc-cert Ar string
-\" SSL PEM key (concatenation of certificate and CA certificate)
-\" .It Fl Fl rc-client-ca Ar string
-\" Client certificate authority to verify clients with
-\" .It Fl Fl rc-enable-metrics
-\" Enable prometheus metrics on /metrics
-\" .It Fl Fl rc-files Ar string
-\" Path to local files to serve on the HTTP server.
-\" .It Fl Fl rc-htpasswd Ar string
-\" htpasswd file - if not provided no authentication is done
-\" .It Fl Fl rc-job-expire-duration Ar duration
-\" expire finished async jobs older than this value (default 1m0s)
-\" .It Fl Fl rc-job-expire-interval Ar duration
-\" interval to check for expired async jobs (default 10s)
-\" .It Fl Fl rc-key Ar string
-\" SSL PEM Private key
-\" .It Fl Fl rc-max-header-bytes Ar int
-\" Maximum size of request header (default 4096)
-\" .It Fl Fl rc-no-auth
-\" Don't require auth for certain methods.
-\" .It Fl Fl rc-pass Ar string
-\" Password for authentication.
-\" .It Fl Fl rc-realm Ar string
-\" realm for authentication (default "rclone")
-\" .It Fl Fl rc-serve
-\" Enable the serving of remote objects.
-\" .It Fl Fl rc-server-read-timeout Ar duration
-\" Timeout for server reading data (default 1h0m0s)
-\" .It Fl Fl rc-server-write-timeout Ar duration
-\" Timeout for server writing data (default 1h0m0s)
-\" .It Fl Fl rc-template Ar string
-\" User Specified Template.
-\" .It Fl Fl rc-user Ar string
-\" User name for authentication.
-\" .It Fl Fl rc-web-fetch-url Ar string
-\" URL to fetch the releases for webgui. (default "https://api.github.com/repos/rclone/rclone-webui-react/releases/latest")
-\" .It Fl Fl rc-web-gui
-\" Launch WebGUI on localhost
-\" .It Fl Fl rc-web-gui-force-update
-\" Force update to latest version of web gui
-\" .It Fl Fl rc-web-gui-no-open-browser
-\" Don't open the browser automatically
-\" .It Fl Fl rc-web-gui-update
-\" Check and update to latest version of web gui
-\" .It Fl Fl refresh-times
-\" Refresh the modtime of remote files.
-\" .It Fl Fl retries Ar int
-\" Retry operations this many times if they fail (default 3)
-\" .It Fl Fl retries-sleep Ar duration
-\" Interval between retrying operations if they fail, e.g 500ms, 60s, 5m. (0 to disable)
-\" .It Fl Fl size-only
-\" Skip based on size only, not mod-time or checksum
-\" .It Fl Fl stats Ar duration
-\" Interval between printing stats, e.g 500ms, 60s, 5m. (0 to disable) (default 1m0s)
-\" .It Fl Fl stats-file-name-length Ar int
-\" Max file name length in stats. 0 for no limit (default 45)
-\" .It Fl Fl stats-log-level Ar string
-\" Log level to show --stats output DEBUG|INFO|NOTICE|ERROR (default "INFO")
-\" .It Fl Fl stats-one-line
-\" Make the stats fit on one line.
-\" .It Fl Fl stats-one-line-date
-\" Enables --stats-one-line and add current date/time prefix.
-\" .It Fl Fl stats-one-line-date-format Ar string
-\" Enables --stats-one-line-date and uses custom formatted date. Enclose date Ar string in double quotes ("). See https://golang.org/pkg/time/#Time.Format
-\" .It Fl Fl stats-unit Ar string
-\" Show data rate in stats as either 'bits' or 'bytes'/s (default "bytes")
-\" .It Fl Fl streaming-upload-cutoff SizeSuffix
-\" Cutoff for switching to chunked upload if file size is unknown. Upload starts after reaching cutoff or when file ends. (default 100k)
-\" .It Fl Fl suffix Ar string
-\" Suffix to add to changed files.
-\" .It Fl Fl suffix-keep-extension
-\" Preserve the extension when using --suffix.
-\" .It Fl Fl syslog
-\" Use Syslog for logging
-\" .It Fl Fl syslog-facility Ar string
-\" Facility for syslog, e.g. KERN,USER,... (default "DAEMON")
-\" .It Fl Fl timeout Ar duration
-\" IO idle timeout (default 5m0s)
-\" .It Fl Fl tpslimit Ar float
-\" Limit HTTP transactions per second to this.
-\" .It Fl Fl tpslimit-burst Ar int
-\" Max burst of transactions for --tpslimit. (default 1)
-\" .It Fl Fl track-renames
-\" When synchronizing, track file renames and do a server-side move if possible
-\" .It Fl Fl track-renames-strategy Ar string
-\" Strategies to use when synchronizing using track-renames hash|modtime|leaf (default "hash")
-\" .It Fl Fl transfers Ar int
-\" Number of file transfers to run in parallel. (default 4)
-\" .It Fl u , Fl Fl update
-\" Skip files that are newer on the destination.
-\" .It Fl Fl use-cookies
-\" Enable session cookiejar.
-\" .It Fl Fl use-json-log
-\" Use json log format.
-\" .It Fl Fl use-mmap
-\" Use mmap allocator (see docs).
-\" .It Fl Fl use-server-modtime
-\" Use server modified time instead of object metadata
-\" .It Fl Fl user-agent Ar string
-\" Set the user-agent to a specified Ar string. The default is rclone/ version (default "rclone/v1.53.0")
-\" .It Fl v , Fl Fl verbose count
-\" Print lots more stuff (repeat for more)
-\" .El
+.Ss Remote paths
+On local file system, the leading '/' will differentiate between relative directories, like
+.Em path/to/dir
+or absolute, like
+.Em /path/to/dir .
+.Pp
+However, the leading '/' is ignored on most remotes, so
+.Em remote:path/to/dir
+and
+.Em remote:/path/to/dir
+refers to the same directory. This is not the case for fTP, SFTP, Dropbox for business :
+.Em remote:path/to/dir
+refers to your home directory, while
+.Em remote:/path/to/dir
+referts to a directory in the root
+.Pp
+An advanced form for creating remotes on the fly is to use
+.Em :backend:path/to/dir .
+For example, listing all the directories in the root of folder on
+.Lk https://pub.rclone.org/ :
+.Dl rclone lsd --http-url https://pub.rclone.org :http:
+Other examples are given in
+.Sx
+.Pp
+ Remote names may only contain 0-9, A-Z ,a-z ,_ , - and space. They  may not start with -.
+.Sx Special characters
+Spaces or shell metacharacters (e.g. *, ?, $, ', ", etc.) must be quoted by single quotes (').
+If you want to send a single quote ('), you will need to used a double quote (").
+.Pp
+As a colon (:) mark a remote name in
+.Nm ,
+this may conflict with some filenames. Use either the absolute path or prefix the filename with ./, like this :
+.Dl    rclone sync -i ./sync:me remote:path
+.Dl    rclone sync -i /full/path/to/sync:me remote:path
+.Ss Server Side Copy
+Most remotes (but not all) support server-side copy.
+This means that copying one folder to another will be done in-place by the server.
+Remotes which don't support server-side copy will download and
+re-upload in this case.
+.Pp
+Server side copies are used with
+.Cm sync
+and
+.Cm copy
+and will be
+identified in the log when using the
+.Fl v
+flag.  The
+.Cm move
+command
+may also use them if remote doesn't support server-side move directly.
+This is done by issuing a server-side copy then a delete which is much
+quicker than a download and re-upload.
+.Pp
+Server side copies will only be attempted if the remote names are the
+same.
+.Ss Options
+Flags are briefly described here. Please see
+.Xr rclone-flags 1
+for a detailed exaplanation on each one of them .
+.Ss Non Backend Flags
+These flags are available for every command.
+.Bl -tag -width Ds
+.It Fl Fl ask-password
+Allow prompt for password for encrypted configuration. (default true)
+.It Fl Fl auto-confirm
+If enabled, do not request console confirmation.
+.It Fl Fl backup-dir Ar string
+Make backups into hierarchy based in DIR.
+.It Fl Fl bind Ar string
+Local address to bind to for outgoing connections, IPv4, IPv6 or name.
+.It Fl Fl buffer-size Ar SizeSuffix
+In memory buffer size when reading files for each --transfer. (default 16M)
+.It Fl Fl bwlimit Ar BwTimetable
+Bandwidth limit in kBytes/s, or use suffix b|k|M|G or a full timetable.
+.It Fl Fl bwlimit-file Ar BwTimetable
+Bandwidth limit per file in kBytes/s, or use suffix b|k|M|G or a full timetable.
+.It Fl Fl ca-cert Ar string
+CA certificate used to verify servers
+.It Fl Fl cache-dir Ar string
+Directory rclone will use for caching. (default "$HOME/.cache/rclone")
+.It Fl Fl check-first
+Do all the checks before starting transfers.
+.It Fl Fl checkers Ar int
+Number of checkers to run in parallel. (default 8)
+.It Fl c , Fl Fl checksum
+Skip based on checksum (if available) & size, not mod-time & size
+.It Fl Fl client-cert Ar string
+Client SSL certificate (PEM) for mutual TLS auth
+.It Fl Fl client-key Ar string
+Client SSL private key (PEM) for mutual TLS auth
+.It Fl Fl compare-dest Ar string
+Include additional server-side path during comparison.
+.It Fl Fl config Ar string
+Config file. (default "$HOME/.config/rclone/rclone.conf")
+.It Fl Fl contimeout Ar duration
+Connect timeout (default 1m0s)
+.It Fl Fl copy-dest Ar string
+Implies --compare-dest but also copies files from path into destination.
+.It Fl Fl cpuprofile Ar string
+Write cpu profile to file
+.It Fl Fl cutoff-mode Ar string
+Mode to stop transfers when reaching the max transfer limit HARD|SOFT|CAUTIOUS (default "HARD")
+.It Fl Fl delete-after
+When synchronizing, delete files on destination after transferring (default)
+.It Fl Fl delete-before
+When synchronizing, delete files on destination before transferring
+.It Fl Fl delete-during
+When synchronizing, delete files during transfer
+.It Fl Fl delete-excluded
+Delete files on dest excluded from sync
+.It Fl Fl disable Ar string
+Disable a comma separated list of features.  Use help to see a list.
+.It Fl n , Fl Fl dry-run
+Do a trial run with no permanent changes
+.It Fl Fl dump Ar DumpFlags
+List of items to dump from: headers,bodies,requests,responses,auth,filters,goroutines,openfiles
+.It Fl Fl dump-bodies
+Dump HTTP headers and bodies - may contain sensitive info
+.It Fl Fl dump-headers
+Dump HTTP headers - may contain sensitive info
+.It Fl Fl error-on-no-transfer
+Sets exit code 9 if no files are transferred, useful in scripts
+.It Fl Fl exclude Ar stringArray
+Exclude files matching pattern
+.It Fl Fl exclude-from Ar stringArray
+Read exclude patterns from file (use - to read from stdin)
+.It Fl Fl exclude-if-present Ar string
+Exclude directories if filename is present
+.It Fl Fl expect-continue-timeout Ar duration
+Timeout when using expect / 100-continue in HTTP (default 1s)
+.It Fl Fl fast-list
+Use recursive list if available. Uses more memory but fewer transactions.
+.It Fl Fl files-from Ar stringArray
+Read list of source-file names from file (use - to read from stdin)
+.It Fl Fl files-from-raw Ar stringArray
+Read list of source-file names from file without any processing of lines (use - to read from stdin)
+.It Fl f , Fl Fl filter Ar stringArray
+Add a file-filtering rule
+.It Fl Fl filter-from Ar stringArray
+Read filtering patterns from a file (use - to read from stdin)
+.It Fl Fl header Ar stringArray
+Set HTTP header for all transactions
+.It Fl Fl header-download Ar stringArray
+Set HTTP header for download transactions
+.It Fl Fl header-upload Ar stringArray
+Set HTTP header for upload transactions
+.It Fl Fl ignore-case
+Ignore case in filters (case insensitive)
+.It Fl Fl ignore-case-sync
+Ignore case when synchronizing
+.It Fl Fl ignore-checksum
+Skip post copy check of checksums.
+.It Fl Fl ignore-errors
+delete even if there are I/O errors
+.It Fl Fl ignore-existing
+Skip all files that exist on destination
+.It Fl Fl ignore-size
+Ignore size when skipping use mod-time or checksum.
+.It Fl I , Fl Fl ignore-times
+Don't skip files that match size and time - transfer all files
+.It Fl Fl immutable
+Do not modify files. Fail if existing files have been modified.
+.It Fl Fl include Ar stringArray
+Include files matching pattern
+.It Fl Fl include-from Ar stringArray
+Read include patterns from file (use - to read from stdin)
+.It Fl i , Fl Fl interactive
+Enable interactive mode
+.It Fl Fl log-file Ar string
+Log everything to this file
+.It Fl Fl log-format Ar string
+Comma separated list of log format options (default "date,time")
+.It Fl Fl log-level Ar string
+Log level DEBUG|INFO|NOTICE|ERROR (default "NOTICE")
+.It Fl Fl low-level-retries Ar int
+Number of low level retries to do. (default 10)
+.It Fl Fl max-age Ar Duration
+Only transfer files younger than this in s or suffix ms|s|m|h|d|w|M|y (default off)
+.It Fl Fl max-backlog Ar int
+Maximum number of objects in sync or check backlog. (default 10000)
+.It Fl Fl max-delete Ar int
+When synchronizing, limit the number of deletes (default -1)
+.It Fl Fl max-depth Ar int
+If set limits the recursion depth to this. (default -1)
+.It Fl Fl max-duration Ar duration
+Maximum duration rclone will transfer data for.
+.It Fl Fl max-size SizeSuffix
+Only transfer files smaller than this in k or suffix b|k|M|G (default off)
+.It Fl Fl max-stats-groups Ar int
+Maximum number of stats groups to keep in memory. On max oldest is discarded. (default 1000)
+.It Fl Fl max-transfer SizeSuffix
+Maximum size of data to transfer. (default off)
+.It Fl Fl memprofile Ar string
+Write memory profile to file
+.It Fl Fl min-age Ar Duration
+Only transfer files older than this in s or suffix ms|s|m|h|d|w|M|y (default off)
+.It Fl Fl min-size SizeSuffix
+Only transfer files bigger than this in k or suffix b|k|M|G (default off)
+.It Fl Fl modify-window Ar duration
+Max time diff to be considered the same (default 1ns)
+.It Fl Fl multi-thread-cutoff SizeSuffix
+Use multi-thread downloads for files above this size. (default 250M)
+.It Fl Fl multi-thread-streams Ar int
+Max number of streams to use for multi-thread downloads. (default 4)
+.It Fl Fl no-check-certificate
+Do not verify the server SSL certificate. Insecure.
+.It Fl Fl no-check-dest
+Don't check the destination, copy regardless.
+.It Fl Fl no-gzip-encoding
+Don't set Accept-Encoding: gzip.
+.It Fl Fl no-traverse
+Don't traverse destination file system on copy.
+.It Fl Fl no-unicode-normalization
+Don't normalize unicode characters in filenames.
+.It Fl Fl no-update-modtime
+Don't update destination mod-time if files identical.
+.It Fl Fl order-by Ar string
+Instructions on how to order the transfers, e.g. 'size,descending'
+.It Fl Fl password-command SpaceSepList
+Command for supplying password for encrypted configuration.
+.It Fl P , Fl Fl progress
+Show progress during transfer.
+.It Fl q , Fl Fl quiet
+Print as little stuff as possible
+.It Fl Fl rc
+Enable the remote control server.
+.It Fl Fl rc-addr Ar string
+IPaddress:Port or :Port to bind server to. (default "localhost:5572")
+.It Fl Fl rc-allow-origin Ar string
+Set the allowed origin for CORS.
+.It Fl Fl rc-baseurl Ar string
+Prefix for URLs - leave blank for root.
+.It Fl Fl rc-cert Ar string
+SSL PEM key (concatenation of certificate and CA certificate)
+.It Fl Fl rc-client-ca Ar string
+Client certificate authority to verify clients with
+.It Fl Fl rc-enable-metrics
+Enable prometheus metrics on /metrics
+.It Fl Fl rc-files Ar string
+Path to local files to serve on the HTTP server.
+.It Fl Fl rc-htpasswd Ar string
+htpasswd file - if not provided no authentication is done
+.It Fl Fl rc-job-expire-duration Ar duration
+expire finished async jobs older than this value (default 1m0s)
+.It Fl Fl rc-job-expire-interval Ar duration
+interval to check for expired async jobs (default 10s)
+.It Fl Fl rc-key Ar string
+SSL PEM Private key
+.It Fl Fl rc-max-header-bytes Ar int
+Maximum size of request header (default 4096)
+.It Fl Fl rc-no-auth
+Don't require auth for certain methods.
+.It Fl Fl rc-pass Ar string
+Password for authentication.
+.It Fl Fl rc-realm Ar string
+realm for authentication (default "rclone")
+.It Fl Fl rc-serve
+Enable the serving of remote objects.
+.It Fl Fl rc-server-read-timeout Ar duration
+Timeout for server reading data (default 1h0m0s)
+.It Fl Fl rc-server-write-timeout Ar duration
+Timeout for server writing data (default 1h0m0s)
+.It Fl Fl rc-template Ar string
+User Specified Template.
+.It Fl Fl rc-user Ar string
+User name for authentication.
+.It Fl Fl rc-web-fetch-url Ar string
+URL to fetch the releases for webgui. (default "https://api.github.com/repos/rclone/rclone-webui-react/releases/latest")
+.It Fl Fl rc-web-gui
+Launch WebGUI on localhost
+.It Fl Fl rc-web-gui-force-update
+Force update to latest version of web gui
+.It Fl Fl rc-web-gui-no-open-browser
+Don't open the browser automatically
+.It Fl Fl rc-web-gui-update
+Check and update to latest version of web gui
+.It Fl Fl refresh-times
+Refresh the modtime of remote files.
+.It Fl Fl retries Ar int
+Retry operations this many times if they fail (default 3)
+.It Fl Fl retries-sleep Ar duration
+Interval between retrying operations if they fail, e.g 500ms, 60s, 5m. (0 to disable)
+.It Fl Fl size-only
+Skip based on size only, not mod-time or checksum
+.It Fl Fl stats Ar duration
+Interval between printing stats, e.g 500ms, 60s, 5m. (0 to disable) (default 1m0s)
+.It Fl Fl stats-file-name-length Ar int
+Max file name length in stats. 0 for no limit (default 45)
+.It Fl Fl stats-log-level Ar string
+Log level to show --stats output DEBUG|INFO|NOTICE|ERROR (default "INFO")
+.It Fl Fl stats-one-line
+Make the stats fit on one line.
+.It Fl Fl stats-one-line-date
+Enables --stats-one-line and add current date/time prefix.
+.It Fl Fl stats-one-line-date-format Ar string
+Enables --stats-one-line-date and uses custom formatted date. Enclose date Ar string in double quotes ("). See https://golang.org/pkg/time/#Time.Format
+.It Fl Fl stats-unit Ar string
+Show data rate in stats as either 'bits' or 'bytes'/s (default "bytes")
+.It Fl Fl streaming-upload-cutoff SizeSuffix
+Cutoff for switching to chunked upload if file size is unknown. Upload starts after reaching cutoff or when file ends. (default 100k)
+.It Fl Fl suffix Ar string
+Suffix to add to changed files.
+.It Fl Fl suffix-keep-extension
+Preserve the extension when using --suffix.
+.It Fl Fl syslog
+Use Syslog for logging
+.It Fl Fl syslog-facility Ar string
+Facility for syslog, e.g. KERN,USER,... (default "DAEMON")
+.It Fl Fl timeout Ar duration
+IO idle timeout (default 5m0s)
+.It Fl Fl tpslimit Ar float
+Limit HTTP transactions per second to this.
+.It Fl Fl tpslimit-burst Ar int
+Max burst of transactions for --tpslimit. (default 1)
+.It Fl Fl track-renames
+When synchronizing, track file renames and do a server-side move if possible
+.It Fl Fl track-renames-strategy Ar string
+Strategies to use when synchronizing using track-renames hash|modtime|leaf (default "hash")
+.It Fl Fl transfers Ar int
+Number of file transfers to run in parallel. (default 4)
+.It Fl u , Fl Fl update
+Skip files that are newer on the destination.
+.It Fl Fl use-cookies
+Enable session cookiejar.
+.It Fl Fl use-json-log
+Use json log format.
+.It Fl Fl use-mmap
+Use mmap allocator (see docs).
+.It Fl Fl use-server-modtime
+Use server modified time instead of object metadata
+.It Fl Fl user-agent Ar string
+Set the user-agent to a specified Ar string. The default is rclone/ version (default "rclone/v1.53.0")
+.It Fl v , Fl Fl verbose count
+Print lots more stuff (repeat for more)
+.El
 
-\" .Ss Backend Flags
+.Ss Backend Flags
 
-\" These flags are available for every command. They control the backends
-\" and may be set in the config file.
-\" .Bl -tag -width Ds
-\" .It Fl Fl acd-auth-url Ar string
-\" Auth server URL.
-\" .It Fl Fl acd-client-id Ar string
-\" OAuth Client Id
-\" .It Fl Fl acd-client-secret Ar string
-\" OAuth Client Secret
-\" .It Fl Fl acd-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,InvalidUtf8,Dot)
-\" .It Fl Fl acd-templink-threshold Ar SizeSuffix
-\" Files >= this size will be downloaded via their tempLink. (default 9G)
-\" .It Fl Fl acd-token Ar string
-\" OAuth Access Token as a JSON blob.
-\" .It Fl Fl acd-token-url Ar string
-\" Token server url.
-\" .It Fl Fl acd-upload-wait-per-gb Ar Duration
-\" Additional time per GB to wait after a failed complete upload to see if it appears. (default 3m0s)
-\" .It Fl Fl alias-remote Ar string
-\" Remote or path to alias.
-\" .It Fl Fl azureblob-access-tier Ar string
-\" Access tier of blob: hot, cool or archive.
-\" .It Fl Fl azureblob-account Ar string
-\" Storage Account Name (leave blank to use SAS URL or Emulator)
-\" .It Fl Fl azureblob-chunk-size Ar SizeSuffix
-\" Upload chunk size (<= 100MB). (default 4M)
-\" .It Fl Fl azureblob-disable-checksum
-\" Don't store MD5 checksum with object metadata.
-\" .It Fl Fl azureblob-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,BackSlash,Del,Ctl,RightPeriod,InvalidUtf8)
-\" .It Fl Fl azureblob-endpoint Ar string
-\" Endpoint for the service
-\" .It Fl Fl azureblob-key Ar string
-\" Storage Account Key (leave blank to use SAS URL or Emulator)
-\" .It Fl Fl azureblob-list-chunk int
-\" Size of blob list. (default 5000)
-\" .It Fl Fl azureblob-memory-pool-flush-time Ar Duration
-\" How often internal memory buffer pools will be flushed. (default 1m0s)
-\" .It Fl Fl azureblob-memory-pool-use-mmap
-\" Whether to use mmap buffers in internal memory pool.
-\" .It Fl Fl azureblob-sas-url Ar string
-\" SAS URL for container level access only
-\" .It Fl Fl azureblob-upload-cutoff Ar SizeSuffix
-\" Cutoff for switching to chunked upload (<= 256MB). (default 256M)
-\" .It Fl Fl azureblob-use-emulator
-\" Uses local storage emulator if provided as 'true' (leave blank if using real azure storage endpoint)
-\" .It Fl Fl b2-account Ar string
-\" Account ID or Application Key ID
-\" .It Fl Fl b2-chunk-size Ar SizeSuffix
-\" Upload chunk size. Must fit in memory. (default 96M)
-\" .It Fl Fl b2-copy-cutoff Ar SizeSuffix
-\" Cutoff for switching to multipart copy (default 4G)
-\" .It Fl Fl b2-disable-checksum
-\" Disable checksums for large (> upload cutoff) files
-\" .It Fl Fl b2-download-auth-duration Ar Duration
-\" Time before the authorization token will expire in s or suffix ms|s|m|h|d. (default 1w)
-\" .It Fl Fl b2-download-url Ar string
-\" Custom endpoint for downloads.
-\" .It Fl Fl b2-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,BackSlash,Del,Ctl,InvalidUtf8,Dot)
-\" .It Fl Fl b2-endpoint Ar string
-\" Endpoint for the service.
-\" .It Fl Fl b2-hard-delete
-\" Permanently delete files on remote removal, otherwise hide files.
-\" .It Fl Fl b2-key Ar string
-\" Application Key
-\" .It Fl Fl b2-memory-pool-flush-time Ar Duration
-\" How often internal memory buffer pools will be flushed. (default 1m0s)
-\" .It Fl Fl b2-memory-pool-use-mmap
-\" Whether to use mmap buffers in internal memory pool.
-\" .It Fl Fl b2-test-mode Ar string
-\" A flag string for X-Bz-Test-Mode header for debugging.
-\" .It Fl Fl b2-upload-cutoff Ar SizeSuffix
-\" Cutoff for switching to chunked upload. (default 200M)
-\" .It Fl Fl b2-versions
-\" Include old versions in directory listings.
-\" .It Fl Fl box-access-token Ar string
-\" Box App Primary Access Token
-\" .It Fl Fl box-auth-url Ar string
-\" Auth server URL.
-\" .It Fl Fl box-box-config-file Ar string
-\" Box App config.json location
-\" .It Fl Fl box-box-sub-type Ar string
-\" (default "user")
-\" .It Fl Fl box-client-id Ar string
-\" OAuth Client Id
-\" .It Fl Fl box-client-secret Ar string
-\" OAuth Client Secret
-\" .It Fl Fl box-commit-retries int
-\" Max number of times to try committing a multipart file. (default 100)
-\" .It Fl Fl box-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,BackSlash,Del,Ctl,RightSpace,InvalidUtf8,Dot)
-\" .It Fl Fl box-root-folder-id Ar string
-\" Fill in for rclone to use a non root folder as its starting point.
-\" .It Fl Fl box-token Ar string
-\" OAuth Access Token as a JSON blob.
-\" .It Fl Fl box-token-url Ar string
-\" Token server url.
-\" .It Fl Fl box-upload-cutoff Ar SizeSuffix
-\" Cutoff for switching to multipart upload (>= 50MB). (default 50M)
-\" .It Fl Fl cache-chunk-clean-interval Ar Duration
-\" How often should the cache perform cleanups of the chunk storage. (default 1m0s)
-\" .It Fl Fl cache-chunk-no-memory
-\" Disable the in-memory cache for storing chunks during streaming.
-\" .It Fl Fl cache-chunk-path Ar string
-\" Directory to cache chunk files. (default "$HOME/.cache/rclone/cache-backend")
-\" .It Fl Fl cache-chunk-size Ar SizeSuffix
-\" The size of a chunk (partial file data). (default 5M)
-\" .It Fl Fl cache-chunk-total-size Ar SizeSuffix
-\" The total size that the chunks can take up on the local disk. (default 10G)
-\" .It Fl Fl cache-db-path Ar string
-\" Directory to store file structure metadata DB. (default "$HOME/.cache/rclone/cache-backend")
-\" .It Fl Fl cache-db-purge
-\" Clear all the cached data for this remote on start.
-\" .It Fl Fl cache-db-wait-time Ar Duration
-\" How long to wait for the DB to be available - 0 is unlimited (default 1s)
-\" .It Fl Fl cache-info-age Ar Duration
-\" How long to cache file structure information (directory listings, file size, times, etc.). (default 6h0m0s)
-\" .It Fl Fl cache-plex-insecure Ar string
-\" Skip all certificate verification when connecting to the Plex server
-\" .It Fl Fl cache-plex-password Ar string
-\" The password of the Plex user (obscured)
-\" .It Fl Fl cache-plex-url Ar string
-\" The URL of the Plex server
-\" .It Fl Fl cache-plex-username Ar string
-\" The username of the Plex user
-\" .It Fl Fl cache-read-retries int
-\" How many times to retry a read from a cache storage. (default 10)
-\" .It Fl Fl cache-remote Ar string
-\" Remote to cache.
-\" .It Fl Fl cache-rps int
-\" Limits the number of requests per second to the source FS (-1 to disable) (default -1)
-\" .It Fl Fl cache-tmp-upload-path Ar string
-\" Directory to keep temporary files until they are uploaded.
-\" .It Fl Fl cache-tmp-wait-time Ar Duration
-\" How long should files be stored in local cache before being uploaded (default 15s)
-\" .It Fl Fl cache-workers int
-\" How many workers should run in parallel to download chunks. (default 4)
-\" .It Fl Fl cache-writes
-\" Cache file data on writes through the FS
-\" .It Fl Fl chunker-chunk-size Ar SizeSuffix
-\" Files larger than chunk size will be split in chunks. (default 2G)
-\" .It Fl Fl chunker-fail-hard
-\" Choose how chunker should handle files with missing or invalid chunks.
-\" .It Fl Fl chunker-hash-type Ar string
-\" Choose how chunker handles hash sums. All modes but "none" require metadata. (default "md5")
-\" .It Fl Fl chunker-meta-format Ar string
-\" Format of the metadata object or "none". By default "simplejson". (default "simplejson")
-\" .It Fl Fl chunker-name-format Ar string
-\" String format of chunk file names. (default "*.rclone_chunk.###")
-\" .It Fl Fl chunker-remote Ar string
-\" Remote to chunk/unchunk.
-\" .It Fl Fl chunker-start-from int
-\" Minimum valid chunk number. Usually 0 or 1. (default 1)
-\" .It Fl L , Fl Fl copy-links
-\" Follow symlinks and copy the pointed to item.
-\" .It Fl Fl crypt-directory-name-encryption
-\" Option to either encrypt directory names or leave them intact. (default true)
-\" .It Fl Fl crypt-filename-encryption Ar string
-\" How to encrypt the filenames. (default "standard")
-\" .It Fl Fl crypt-password Ar string
-\" Password or pass phrase for encryption. (obscured)
-\" .It Fl Fl crypt-password2 Ar string
-\" Password or pass phrase for salt. Optional but recommended. (obscured)
-\" .It Fl Fl crypt-remote Ar string
-\" Remote to encrypt/decrypt.
-\" .It Fl Fl crypt-server-side-across-configs
-\" Allow server-side operations (e.g. copy) to work across different crypt configs.
-\" .It Fl Fl crypt-show-mapping
-\" For all files listed show how the names encrypt.
-\" .It Fl Fl drive-acknowledge-abuse
-\" Set to allow files which return cannotDownloadAbusiveFile to be downloaded.
-\" .It Fl Fl drive-allow-import-name-change
-\" Allow the filetype to change when uploading Google docs (e.g. file.doc to file.docx). This will confuse sync and reupload every time.
-\" .It Fl Fl drive-auth-owner-only
-\" Only consider files owned by the authenticated user.
-\" .It Fl Fl drive-auth-url Ar string
-\" Auth server URL.
-\" .It Fl Fl drive-chunk-size Ar SizeSuffix
-\" Upload chunk size. Must a power of 2 >= 256k. (default 8M)
-\" .It Fl Fl drive-client-id Ar string
-\" OAuth Client Id
-\" .It Fl Fl drive-client-secret Ar string
-\" OAuth Client Secret
-\" .It Fl Fl drive-disable-http2
-\" Disable drive using http2 (default true)
-\" .It Fl Fl drive-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default InvalidUtf8)
-\" .It Fl Fl drive-export-formats Ar string
-\" Comma separated list of preferred formats for downloading Google docs. (default "docx,xlsx,pptx,svg")
-\" .It Fl Fl drive-formats Ar string
-\" Deprecated: see export_formats
-\" .It Fl Fl drive-impersonate Ar string
-\" Impersonate this user when using a service account.
-\" .It Fl Fl drive-import-formats Ar string
-\" Comma separated list of preferred formats for uploading Google docs.
-\" .It Fl Fl drive-keep-revision-forever
-\" Keep new head revision of each file forever.
-\" .It Fl Fl drive-list-chunk int
-\" Size of listing chunk 100-1000. 0 to disable. (default 1000)
-\" .It Fl Fl drive-pacer-burst int
-\" Number of API calls to allow without sleeping. (default 100)
-\" .It Fl Fl drive-pacer-min-sleep Ar Duration
-\" Minimum time to sleep between API calls. (default 100ms)
-\" .It Fl Fl drive-root-folder-id Ar string
-\" ID of the root folder
-\" .It Fl Fl drive-scope Ar string
-\" Scope that rclone should use when requesting access from drive.
-\" .It Fl Fl drive-server-side-across-configs
-\" Allow server-side operations (e.g. copy) to work across different drive configs.
-\" .It Fl Fl drive-service-account-credentials Ar string
-\" Service Account Credentials JSON blob
-\" .It Fl Fl drive-service-account-file Ar string
-\" Service Account Credentials JSON file path
-\" .It Fl Fl drive-shared-with-me
-\" Only show files that are shared with me.
-\" .It Fl Fl drive-size-as-quota
-\" Show sizes as storage quota usage, not actual size.
-\" .It Fl Fl drive-skip-checksum-gphotos
-\" Skip MD5 checksum on Google photos and videos only.
-\" .It Fl Fl drive-skip-gdocs
-\" Skip google documents in all listings.
-\" .It Fl Fl drive-skip-shortcuts
-\" If set skip shortcut files
-\" .It Fl Fl drive-starred-only
-\" Only show files that are starred.
-\" .It Fl Fl drive-stop-on-upload-limit
-\" Make upload limit errors be fatal
-\" .It Fl Fl drive-team-drive Ar string
-\" ID of the Team Drive
-\" .It Fl Fl drive-token Ar string
-\" OAuth Access Token as a JSON blob.
-\" .It Fl Fl drive-token-url Ar string
-\" Token server url.
-\" .It Fl Fl drive-trashed-only
-\" Only show files that are in the trash.
-\" .It Fl Fl drive-upload-cutoff Ar SizeSuffix
-\" Cutoff for switching to chunked upload (default 8M)
-\" .It Fl Fl drive-use-created-date
-\" Use file created date instead of modified date.,
-\" .It Fl Fl drive-use-shared-date
-\" Use date file was shared instead of modified date.
-\" .It Fl Fl drive-use-trash
-\" Send files to the trash instead of deleting permanently. (default true)
-\" .It Fl Fl drive-v2-download-min-size Ar SizeSuffix
-\" If Object's are greater, use drive v2 API to download. (default off)
-\" .It Fl Fl dropbox-auth-url Ar string
-\" Auth server URL.
-\" .It Fl Fl dropbox-chunk-size Ar SizeSuffix
-\" Upload chunk size. (< 150M). (default 48M)
-\" .It Fl Fl dropbox-client-id Ar string
-\" OAuth Client Id
-\" .It Fl Fl dropbox-client-secret Ar string
-\" OAuth Client Secret
-\" .It Fl Fl dropbox-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,BackSlash,Del,RightSpace,InvalidUtf8,Dot)
-\" .It Fl Fl dropbox-impersonate Ar string
-\" Impersonate this user when using a business account.
-\" .It Fl Fl dropbox-token Ar string
-\" OAuth Access Token as a JSON blob.
-\" .It Fl Fl dropbox-token-url Ar string
-\" Token server url.
-\" .It Fl Fl fichier-api-key Ar string
-\" Your API Key, get it from https://1fichier.com/console/params.pl
-\" .It Fl Fl fichier-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,LtGt,DoubleQuote,SingleQuote,BackQuote,Dollar,BackSlash,Del,Ctl,LeftSpace,RightSpace,InvalidUtf8,Dot)
-\" .It Fl Fl fichier-shared-folder Ar string
-\" If you want to download a shared folder, add this parameter
-\" .It Fl Fl ftp-concurrency int
-\" Maximum number of FTP simultaneous connections, 0 for unlimited
-\" .It Fl Fl ftp-disable-epsv
-\" Disable using EPSV even if server advertises support
-\" .It Fl Fl ftp-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,Del,Ctl,RightSpace,Dot)
-\" .It Fl Fl ftp-explicit-tls
-\" Use FTP over TLS (Explicit)
-\" .It Fl Fl ftp-host Ar string
-\" FTP host to connect to
-\" .It Fl Fl ftp-no-check-certificate
-\" Do not verify the TLS certificate of the server
-\" .It Fl Fl ftp-pass Ar string
-\" FTP password (obscured)
-\" .It Fl Fl ftp-port Ar string
-\" FTP port, leave blank to use default (21)
-\" .It Fl Fl ftp-tls
-\" Use FTPS over TLS (Implicit)
-\" .It Fl Fl ftp-user Ar string
-\" FTP username, leave blank for current username, $USER
-\" .It Fl Fl gcs-anonymous
-\" Access public buckets and objects without credentials
-\" .It Fl Fl gcs-auth-url Ar string
-\" Auth server URL.
-\" .It Fl Fl gcs-bucket-acl Ar string
-\" Access Control List for new buckets.
-\" .It Fl Fl gcs-bucket-policy-only
-\" Access checks should use bucket-level IAM policies.
-\" .It Fl Fl gcs-client-id Ar string
-\" OAuth Client Id
-\" .It Fl Fl gcs-client-secret Ar string
-\" OAuth Client Secret
-\" .It Fl Fl gcs-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,CrLf,InvalidUtf8,Dot)
-\" .It Fl Fl gcs-location Ar string
-\" Location for the newly created buckets.
-\" .It Fl Fl gcs-object-acl Ar string
-\" Access Control List for new objects.
-\" .It Fl Fl gcs-project-number Ar string
-\" Project number.
-\" .It Fl Fl gcs-service-account-file Ar string
-\" Service Account Credentials JSON file path
-\" .It Fl Fl gcs-storage-class Ar string
-\" The storage class to use when storing objects in Google Cloud Storage.
-\" .It Fl Fl gcs-token Ar string
-\" OAuth Access Token as a JSON blob.
-\" .It Fl Fl gcs-token-url Ar string
-\" Token server url.
-\" .It Fl Fl gphotos-auth-url Ar string
-\" Auth server URL.
-\" .It Fl Fl gphotos-client-id Ar string
-\" OAuth Client Id
-\" .It Fl Fl gphotos-client-secret Ar string
-\" OAuth Client Secret
-\" .It Fl Fl gphotos-read-only
-\" Set to make the Google Photos backend read only.
-\" .It Fl Fl gphotos-read-size
-\" Set to read the size of media items.
-\" .It Fl Fl gphotos-start-year int
-\" Year limits the photos to be downloaded to those which are uploaded after the given year (default 2000)
-\" .It Fl Fl gphotos-token Ar string
-\" OAuth Access Token as a JSON blob.
-\" .It Fl Fl gphotos-token-url Ar string
-\" Token server url.
-\" .It Fl Fl http-headers CommaSepList
-\" Set HTTP headers for all transactions
-\" .It Fl Fl http-no-head
-\" Don't use HEAD requests to find file sizes in dir listing
-\" .It Fl Fl http-no-slash
-\" Set this if the site doesn't end directories with /
-\" .It Fl Fl http-url Ar string
-\" URL of http host to connect to
-\" .It Fl Fl hubic-auth-url Ar string
-\" Auth server URL.
-\" .It Fl Fl hubic-chunk-size Ar SizeSuffix
-\" Above this size files will be chunked into a _segments container. (default 5G)
-\" .It Fl Fl hubic-client-id Ar string
-\" OAuth Client Id
-\" .It Fl Fl hubic-client-secret Ar string
-\" OAuth Client Secret
-\" .It Fl Fl hubic-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,InvalidUtf8)
-\" .It Fl Fl hubic-no-chunk
-\" Don't chunk files during streaming upload.
-\" .It Fl Fl hubic-token Ar string
-\" OAuth Access Token as a JSON blob.
-\" .It Fl Fl hubic-token-url Ar string
-\" Token server url.
-\" .It Fl Fl jottacloud-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,LtGt,DoubleQuote,Colon,Question,Asterisk,Pipe,Del,Ctl,InvalidUtf8,Dot)
-\" .It Fl Fl jottacloud-hard-delete
-\" Delete files permanently rather than putting them into the trash.
-\" .It Fl Fl jottacloud-md5-memory-limit Ar SizeSuffix
-\" Files bigger than this will be cached on disk to calculate the MD5 if required. (default 10M)
-\" .It Fl Fl jottacloud-trashed-only
-\" Only show files that are in the trash.
-\" .It Fl Fl jottacloud-upload-resume-limit Ar SizeSuffix
-\" Files bigger than this can be resumed if the upload fail's. (default 10M)
-\" .It Fl Fl koofr-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,BackSlash,Del,Ctl,InvalidUtf8,Dot)
-\" .It Fl Fl koofr-endpoint Ar string
-\" The Koofr API endpoint to use (default "https://app.koofr.net")
-\" .It Fl Fl koofr-mountid Ar string
-\" Mount ID of the mount to use. If omitted, the primary mount is used.
-\" .It Fl Fl koofr-password Ar string
-\" Your Koofr password for rclone (generate one at https://app.koofr.net/app/admin/preferences/password) (obscured)
-\" .It Fl Fl koofr-setmtime
-\" Does the backend support setting modification time. Set this to false if you use a mount ID that points to a Dropbox or Amazon Drive backend. (default true)
-\" .It Fl Fl koofr-user Ar string
-\" Your Koofr user name
-\" .It Fl l , Fl Fl links
-\" Translate symlinks to/from regular files with a '.rclonelink' extension
-\" .It Fl Fl local-case-insensitive
-\" Force the filesystem to report itself as case insensitive
-\" .It Fl Fl local-case-sensitive
-\" Force the filesystem to report itself as case sensitive.
-\" .It Fl Fl local-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,Dot)
-\" .It Fl Fl local-no-check-updated
-\" Don't check to see if the files change during upload
-\" .It Fl Fl local-no-set-modtime
-\" Disable setting modtime
-\" .It Fl Fl local-no-sparse
-\" Disable sparse files for multi-thread downloads
-\" .It Fl Fl local-no-unicode-normalization
-\" Don't apply unicode normalization to paths and filenames (Deprecated)
-\" .It Fl Fl local-nounc Ar string
-\" Disable UNC (long path names) conversion on Windows
-\" .It Fl Fl mailru-check-hash
-\" What should copy do if file checksum is mismatched or invalid (default true)
-\" .It Fl Fl mailru-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,LtGt,DoubleQuote,Colon,Question,Asterisk,Pipe,BackSlash,Del,Ctl,InvalidUtf8,Dot)
-\" .It Fl Fl mailru-pass Ar string
-\" Password (obscured)
-\" .It Fl Fl mailru-speedup-enable
-\" Skip full upload if there is another file with same data hash. (default true)
-\" .It Fl Fl mailru-speedup-file-patterns Ar string
-\" Comma separated list of file name patterns eligible for speedup (put by hash). (default "*.mkv,*.avi,*.mp4,*.mp3,*.zip,*.gz,*.rar,*.pdf")
-\" .It Fl Fl mailru-speedup-max-disk Ar SizeSuffix
-\" This option allows you to disable speedup (put by hash) for large files (default 3G)
-\" .It Fl Fl mailru-speedup-max-memory Ar SizeSuffix
-\" Files larger than the size given below will always be hashed on disk. (default 32M)
-\" .It Fl Fl mailru-user Ar string
-\" User name (usually email)
-\" .It Fl Fl mega-debug
-\" Output more debug from Mega.
-\" .It Fl Fl mega-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,InvalidUtf8,Dot)
-\" .It Fl Fl mega-hard-delete
-\" Delete files permanently rather than putting them into the trash.
-\" .It Fl Fl mega-pass Ar string
-\" Password. (obscured)
-\" .It Fl Fl mega-user Ar string
-\" User name
-\" .It Fl x , Fl Fl one-file-system
-\" Don't cross filesystem boundaries (unix/macOS only).
-\" .It Fl Fl onedrive-auth-url Ar string
-\" Auth server URL.
-\" .It Fl Fl onedrive-chunk-size Ar SizeSuffix
-\" Chunk size to upload files with - must be multiple of 320k (327,680 bytes). (default 10M)
-\" .It Fl Fl onedrive-client-id Ar string
-\" OAuth Client Id
-\" .It Fl Fl onedrive-client-secret Ar string
-\" OAuth Client Secret
-\" .It Fl Fl onedrive-drive-id Ar string
-\" The ID of the drive to use
-\" .It Fl Fl onedrive-drive-type Ar string
-\" The type of the drive ( personal | business | documentLibrary )
-\" .It Fl Fl onedrive-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,LtGt,DoubleQuote,Colon,Question,Asterisk,Pipe,Hash,Percent,BackSlash,Del,Ctl,LeftSpace,LeftTilde,RightSpace,RightPeriod,InvalidUtf8,Dot)
-\" .It Fl Fl onedrive-expose-onenote-files
-\" Set to make OneNote files show up in directory listings.
-\" .It Fl Fl onedrive-no-versions
-\" Remove all versions on modifying operations
-\" .It Fl Fl onedrive-server-side-across-configs
-\" Allow server-side operations (e.g. copy) to work across different onedrive configs.
-\" .It Fl Fl onedrive-token Ar string
-\" OAuth Access Token as a JSON blob.
-\" .It Fl Fl onedrive-token-url Ar string
-\" Token server url.
-\" .It Fl Fl opendrive-chunk-size Ar SizeSuffix
-\" Files will be uploaded in chunks this size. (default 10M)
-\" .It Fl Fl opendrive-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,LtGt,DoubleQuote,Colon,Question,Asterisk,Pipe,BackSlash,LeftSpace,LeftCrLfHtVt,RightSpace,RightCrLfHtVt,InvalidUtf8,Dot)
-\" .It Fl Fl opendrive-password Ar string
-\" Password. (obscured)
-\" .It Fl Fl opendrive-username Ar string
-\" Username
-\" .It Fl Fl pcloud-auth-url Ar string
-\" Auth server URL.
-\" .It Fl Fl pcloud-client-id Ar string
-\" OAuth Client Id
-\" .It Fl Fl pcloud-client-secret Ar string
-\" OAuth Client Secret
-\" .It Fl Fl pcloud-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,BackSlash,Del,Ctl,InvalidUtf8,Dot)
-\" .It Fl Fl pcloud-hostname Ar string
-\" Hostname to connect to. (default "api.pcloud.com")
-\" .It Fl Fl pcloud-root-folder-id Ar string
-\" Fill in for rclone to use a non root folder as its starting point. (default "d0")
-\" .It Fl Fl pcloud-token Ar string
-\" OAuth Access Token as a JSON blob.
-\" .It Fl Fl pcloud-token-url Ar string
-\" Token server url.
-\" .It Fl Fl premiumizeme-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,DoubleQuote,BackSlash,Del,Ctl,InvalidUtf8,Dot)
-\" .It Fl Fl putio-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,BackSlash,Del,Ctl,InvalidUtf8,Dot)
-\" .It Fl Fl qingstor-access-key-id Ar string
-\" QingStor Access Key ID
-\" .It Fl Fl qingstor-chunk-size Ar SizeSuffix
-\" Chunk size to use for uploading. (default 4M)
-\" .It Fl Fl qingstor-connection-retries int
-\" Number of connection retries. (default 3)
-\" .It Fl Fl qingstor-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,Ctl,InvalidUtf8)
-\" .It Fl Fl qingstor-endpoint Ar string
-\" Enter an endpoint URL to connection QingStor API.
-\" .It Fl Fl qingstor-env-auth
-\" Get QingStor credentials from runtime. Only applies if access_key_id and secret_access_key is blank.
-\" .It Fl Fl qingstor-secret-access-key Ar string
-\" QingStor Secret Access Key (password)
-\" .It Fl Fl qingstor-upload-concurrency int
-\" Concurrency for multipart uploads. (default 1)
-\" .It Fl Fl qingstor-upload-cutoff Ar SizeSuffix
-\" Cutoff for switching to chunked upload (default 200M)
-\" .It Fl Fl qingstor-zone Ar string
-\" Zone to connect to.
-\" .It Fl Fl s3-access-key-id Ar string
-\" AWS Access Key ID.
-\" .It Fl Fl s3-acl Ar string
-\" Canned ACL used when creating buckets and storing or copying objects.
-\" .It Fl Fl s3-bucket-acl Ar string
-\" Canned ACL used when creating buckets.
-\" .It Fl Fl s3-chunk-size Ar SizeSuffix
-\" Chunk size to use for uploading. (default 5M)
-\" .It Fl Fl s3-copy-cutoff Ar SizeSuffix
-\" Cutoff for switching to multipart copy (default 4.656G)
-\" .It Fl Fl s3-disable-checksum
-\" Don't store MD5 checksum with object metadata
-\" .It Fl Fl s3-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,InvalidUtf8,Dot)
-\" .It Fl Fl s3-endpoint Ar string
-\" Endpoint for S3 API.
-\" .It Fl Fl s3-env-auth
-\" Get AWS credentials from runtime (environment variables or EC2/ECS meta data if no env vars).
-\" .It Fl Fl s3-force-path-style
-\" If true use path style access if false use virtual hosted style. (default true)
-\" .It Fl Fl s3-leave-parts-on-error
-\" If true avoid calling abort upload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.
-\" .It Fl Fl s3-list-chunk int
-\" Size of listing chunk (response list for each ListObject S3 request). (default 1000)
-\" .It Fl Fl s3-location-constraint Ar string
-\" Location constraint - must be set to match the Region.
-\" .It Fl Fl s3-max-upload-parts int
-\" Maximum number of parts in a multipart upload. (default 10000)
-\" .It Fl Fl s3-memory-pool-flush-time Ar Duration
-\" How often internal memory buffer pools will be flushed. (default 1m0s)
-\" .It Fl Fl s3-memory-pool-use-mmap
-\" Whether to use mmap buffers in internal memory pool.
-\" .It Fl Fl s3-no-check-bucket
-\" If set, don't attempt to check the bucket exists or create it
-\" .It Fl Fl s3-profile Ar string
-\" Profile to use in the shared credentials file
-\" .It Fl Fl s3-provider Ar string
-\" Choose your S3 provider.
-\" .It Fl Fl s3-region Ar string
-\" Region to connect to.
-\" .It Fl Fl s3-secret-access-key Ar string
-\" AWS Secret Access Key (password)
-\" .It Fl Fl s3-server-side-encryption Ar string
-\" The server-side encryption algorithm used when storing this object in S3.
-\" .It Fl Fl s3-session-token Ar string
-\" An AWS session token
-\" .It Fl Fl s3-shared-credentials-file Ar string
-\" Path to the shared credentials file
-\" .It Fl Fl s3-sse-customer-algorithm Ar string
-\" If using SSE-C, the server-side encryption algorithm used when storing this object in S3.
-\" .It Fl Fl s3-sse-customer-key Ar string
-\" If using SSE-C you must provide the secret encryption key used to encrypt/decrypt your data.
-\" .It Fl Fl s3-sse-customer-key-md5 Ar string
-\" If using SSE-C you must provide the secret encryption key MD5 checksum.
-\" .It Fl Fl s3-sse-kms-key-id Ar string
-\" If using KMS ID you must provide the ARN of Key.
-\" .It Fl Fl s3-storage-class Ar string
-\" The storage class to use when storing new objects in S3.
-\" .It Fl Fl s3-upload-concurrency int
-\" Concurrency for multipart uploads. (default 4)
-\" .It Fl Fl s3-upload-cutoff Ar SizeSuffix
-\" Cutoff for switching to chunked upload (default 200M)
-\" .It Fl Fl s3-use-accelerate-endpoint
-\" If true use the AWS S3 accelerated endpoint.
-\" .It Fl Fl s3-v2-auth
-\" If true use v2 authentication.
-\" .It Fl Fl seafile-2fa
-\" Two-factor authentication ('true' if the account has 2FA enabled)
-\" .It Fl Fl seafile-create-library
-\" Should rclone create a library if it doesn't exist
-\" .It Fl Fl seafile-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,DoubleQuote,BackSlash,Ctl,InvalidUtf8)
-\" .It Fl Fl seafile-library Ar string
-\" Name of the library. Leave blank to access all non-encrypted libraries.
-\" .It Fl Fl seafile-library-key Ar string
-\" Library password (for encrypted libraries only). Leave blank if you pass it through the command line. (obscured)
-\" .It Fl Fl seafile-pass Ar string
-\" Password (obscured)
-\" .It Fl Fl seafile-url Ar string
-\" URL of seafile host to connect to
-\" .It Fl Fl seafile-user Ar string
-\" User name (usually email address)
-\" .It Fl Fl sftp-ask-password
-\" Allow asking for SFTP password when needed.
-\" .It Fl Fl sftp-disable-hashcheck
-\" Disable the execution of SSH commands to determine if remote file hashing is available.
-\" .It Fl Fl sftp-host Ar string
-\" SSH host to connect to
-\" .It Fl Fl sftp-key-file Ar string
-\" Path to PEM-encoded private key file, leave blank or set key-use-agent to use ssh-agent.
-\" .It Fl Fl sftp-key-file-pass Ar string
-\" The passphrase to decrypt the PEM-encoded private key file. (obscured)
-\" .It Fl Fl sftp-key-pem Ar string
-\" Raw PEM-encoded private key, If specified, will override key_file parameter.
-\" .It Fl Fl sftp-key-use-agent
-\" When set forces the usage of the ssh-agent.
-\" .It Fl Fl sftp-md5sum-command Ar string
-\" The command used to read md5 hashes. Leave blank for autodetect.
-\" .It Fl Fl sftp-pass Ar string
-\" SSH password, leave blank to use ssh-agent. (obscured)
-\" .It Fl Fl sftp-path-override Ar string
-\" Override path used by SSH connection.
-\" .It Fl Fl sftp-port Ar string
-\" SSH port, leave blank to use default (22)
-\" .It Fl Fl sftp-server-command Ar string
-\" Specifies the path or command to run a sftp server on the remote host.
-\" .It Fl Fl sftp-set-modtime
-\" Set the modified time on the remote if set. (default true)
-\" .It Fl Fl sftp-sha1sum-command Ar string
-\" The command used to read sha1 hashes. Leave blank for autodetect.
-\" .It Fl Fl sftp-skip-links
-\" Set to skip any symlinks and any other non regular files.
-\" .It Fl Fl sftp-subsystem Ar string
-\" Specifies the SSH2 subsystem on the remote host. (default "sftp")
-\" .It Fl Fl sftp-use-insecure-cipher
-\" Enable the use of insecure ciphers and key exchange methods.
-\" .It Fl Fl sftp-user Ar string
-\" SSH username, leave blank for current username, ncw
-\" .It Fl Fl sharefile-chunk-size Ar SizeSuffix
-\" Upload chunk size. Must a power of 2 >= 256k. (default 64M)
-\" .It Fl Fl sharefile-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,LtGt,DoubleQuote,Colon,Question,Asterisk,Pipe,BackSlash,Ctl,LeftSpace,LeftPeriod,RightSpace,RightPeriod,InvalidUtf8,Dot)
-\" .It Fl Fl sharefile-endpoint Ar string
-\" Endpoint for API calls.
-\" .It Fl Fl sharefile-root-folder-id Ar string
-\" ID of the root folder
-\" .It Fl Fl sharefile-upload-cutoff Ar SizeSuffix
-\" Cutoff for switching to multipart upload. (default 128M)
-\" .It Fl Fl skip-links
-\" Don't warn about skipped symlinks.
-\" .It Fl Fl sugarsync-access-key-id Ar string
-\" Sugarsync Access Key ID.
-\" .It Fl Fl sugarsync-app-id Ar string
-\" Sugarsync App ID.
-\" .It Fl Fl sugarsync-authorization Ar string
-\" Sugarsync authorization
-\" .It Fl Fl sugarsync-authorization-expiry Ar string
-\" Sugarsync authorization expiry
-\" .It Fl Fl sugarsync-deleted-id Ar string
-\" Sugarsync deleted folder id
-\" .It Fl Fl sugarsync-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,Ctl,InvalidUtf8,Dot)
-\" .It Fl Fl sugarsync-hard-delete
-\" Permanently delete files if true
-\" .It Fl Fl sugarsync-private-access-key Ar string
-\" Sugarsync Private Access Key
-\" .It Fl Fl sugarsync-refresh-token Ar string
-\" Sugarsync refresh token
-\" .It Fl Fl sugarsync-root-id Ar string
-\" Sugarsync root id
-\" .It Fl Fl sugarsync-user Ar string
-\" Sugarsync user
-\" .It Fl Fl swift-application-credential-id Ar string
-\" Application Credential ID (OS_APPLICATION_CREDENTIAL_ID)
-\" .It Fl Fl swift-application-credential-name Ar string
-\" Application Credential Name (OS_APPLICATION_CREDENTIAL_NAME)
-\" .It Fl Fl swift-application-credential-secret Ar string
-\" Application Credential Secret (OS_APPLICATION_CREDENTIAL_SECRET)
-\" .It Fl Fl swift-auth Ar string
-\" Authentication URL for server (OS_AUTH_URL).
-\" .It Fl Fl swift-auth-token Ar string
-\" Auth Token from alternate authentication - optional (OS_AUTH_TOKEN)
-\" .It Fl Fl swift-auth-version int
-\" AuthVersion - optional - set to (1,2,3) if your auth URL has no version (ST_AUTH_VERSION)
-\" .It Fl Fl swift-chunk-size Ar SizeSuffix
-\" Above this size files will be chunked into a _segments container. (default 5G)
-\" .It Fl Fl swift-domain Ar string
-\" User domain - optional (v3 auth) (OS_USER_DOMAIN_NAME)
-\" .It Fl Fl swift-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,InvalidUtf8)
-\" .It Fl Fl swift-endpoint-type Ar string
-\" Endpoint type to choose from the service catalogue (OS_ENDPOINT_TYPE) (default "public")
-\" .It Fl Fl swift-env-auth
-\" Get swift credentials from environment variables in standard OpenStack form.
-\" .It Fl Fl swift-key Ar string
-\" API key or password (OS_PASSWORD).
-\" .It Fl Fl swift-no-chunk
-\" Don't chunk files during streaming upload.
-\" .It Fl Fl swift-region Ar string
-\" Region name - optional (OS_REGION_NAME)
-\" .It Fl Fl swift-storage-policy Ar string
-\" The storage policy to use when creating a new container
-\" .It Fl Fl swift-storage-url Ar string
-\" Storage URL - optional (OS_STORAGE_URL)
-\" .It Fl Fl swift-tenant Ar string
-\" Tenant name - optional for v1 auth, this or tenant_id required otherwise (OS_TENANT_NAME or OS_PROJECT_NAME)
-\" .It Fl Fl swift-tenant-domain Ar string
-\" Tenant domain - optional (v3 auth) (OS_PROJECT_DOMAIN_NAME)
-\" .It Fl Fl swift-tenant-id Ar string
-\" Tenant ID - optional for v1 auth, this or tenant required otherwise (OS_TENANT_ID)
-\" .It Fl Fl swift-user Ar string
-\" User name to log in (OS_USERNAME).
-\" .It Fl Fl swift-user-id Ar string
-\" User ID to log in - optional - most swift systems use user and leave this blank (v3 auth) (OS_USER_ID).
-\" .It Fl Fl tardigrade-access-grant Ar string
-\" Access Grant.
-\" .It Fl Fl tardigrade-api-key Ar string
-\" API Key.
-\" .It Fl Fl tardigrade-passphrase Ar string
-\" Encryption Passphrase. To access existing objects enter passphrase used for uploading.
-\" .It Fl Fl tardigrade-provider Ar string
-\" Choose an authentication method. (default "existing")
-\" .It Fl Fl tardigrade-satellite-address <nodeid>@<address>:<port>
-\" Satellite Address. Custom satellite address should match the format: <nodeid>@<address>:<port>. (default "us-central-1.tardigrade.io")
-\" .It Fl Fl union-action-policy Ar string
-\" Policy to choose upstream on ACTION category. (default "epall")
-\" .It Fl Fl union-cache-time int
-\" Cache time of usage and free space (in seconds). This option is only useful when a path preserving policy is used. (default 120)
-\" .It Fl Fl union-create-policy Ar string
-\" Policy to choose upstream on CREATE category. (default "epmfs")
-\" .It Fl Fl union-search-policy Ar string
-\" Policy to choose upstream on SEARCH category. (default "ff")
-\" .It Fl Fl union-upstreams Ar string
-\" List of space separated upstreams.
-\" .It Fl Fl webdav-bearer-token Ar string
-\" Bearer token instead of user/pass (e.g. a Macaroon)
-\" .It Fl Fl webdav-bearer-token-command Ar string
-\" Command to run to get a bearer token
-\" .It Fl Fl webdav-pass Ar string
-\" Password. (obscured)
-\" .It Fl Fl webdav-url Ar string
-\" URL of http host to connect to
-\" .It Fl Fl webdav-user Ar string
-\" User name
-\" .It Fl Fl webdav-vendor Ar string
-\" Name of the Webdav site/service/software you are using
-\" .It Fl Fl yandex-auth-url Ar string
-\" Auth server URL.
-\" .It Fl Fl yandex-client-id Ar string
-\" OAuth Client Id
-\" .It Fl Fl yandex-client-secret Ar string
-\" OAuth Client Secret
-\" .It Fl Fl yandex-encoding Ar MultiEncoder
-\" This sets the encoding for the backend. (default Slash,Del,Ctl,InvalidUtf8,Dot)
-\" .It Fl Fl yandex-token Ar string
-\" OAuth Access Token as a JSON blob.
-\" .It Fl Fl yandex-token-url Ar string
-\" Token server url.
-\" .El
+These flags are available for every command. They control the backends
+and may be set in the config file.
+.Bl -tag -width Ds
+.It Fl Fl acd-auth-url Ar string
+Auth server URL.
+.It Fl Fl acd-client-id Ar string
+OAuth Client Id
+.It Fl Fl acd-client-secret Ar string
+OAuth Client Secret
+.It Fl Fl acd-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,InvalidUtf8,Dot)
+.It Fl Fl acd-templink-threshold Ar SizeSuffix
+Files >= this size will be downloaded via their tempLink. (default 9G)
+.It Fl Fl acd-token Ar string
+OAuth Access Token as a JSON blob.
+.It Fl Fl acd-token-url Ar string
+Token server url.
+.It Fl Fl acd-upload-wait-per-gb Ar Duration
+Additional time per GB to wait after a failed complete upload to see if it appears. (default 3m0s)
+.It Fl Fl alias-remote Ar string
+Remote or path to alias.
+.It Fl Fl azureblob-access-tier Ar string
+Access tier of blob: hot, cool or archive.
+.It Fl Fl azureblob-account Ar string
+Storage Account Name (leave blank to use SAS URL or Emulator)
+.It Fl Fl azureblob-chunk-size Ar SizeSuffix
+Upload chunk size (<= 100MB). (default 4M)
+.It Fl Fl azureblob-disable-checksum
+Don't store MD5 checksum with object metadata.
+.It Fl Fl azureblob-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,BackSlash,Del,Ctl,RightPeriod,InvalidUtf8)
+.It Fl Fl azureblob-endpoint Ar string
+Endpoint for the service
+.It Fl Fl azureblob-key Ar string
+Storage Account Key (leave blank to use SAS URL or Emulator)
+.It Fl Fl azureblob-list-chunk int
+Size of blob list. (default 5000)
+.It Fl Fl azureblob-memory-pool-flush-time Ar Duration
+How often internal memory buffer pools will be flushed. (default 1m0s)
+.It Fl Fl azureblob-memory-pool-use-mmap
+Whether to use mmap buffers in internal memory pool.
+.It Fl Fl azureblob-sas-url Ar string
+SAS URL for container level access only
+.It Fl Fl azureblob-upload-cutoff Ar SizeSuffix
+Cutoff for switching to chunked upload (<= 256MB). (default 256M)
+.It Fl Fl azureblob-use-emulator
+Uses local storage emulator if provided as 'true' (leave blank if using real azure storage endpoint)
+.It Fl Fl b2-account Ar string
+Account ID or Application Key ID
+.It Fl Fl b2-chunk-size Ar SizeSuffix
+Upload chunk size. Must fit in memory. (default 96M)
+.It Fl Fl b2-copy-cutoff Ar SizeSuffix
+Cutoff for switching to multipart copy (default 4G)
+.It Fl Fl b2-disable-checksum
+Disable checksums for large (> upload cutoff) files
+.It Fl Fl b2-download-auth-duration Ar Duration
+Time before the authorization token will expire in s or suffix ms|s|m|h|d. (default 1w)
+.It Fl Fl b2-download-url Ar string
+Custom endpoint for downloads.
+.It Fl Fl b2-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,BackSlash,Del,Ctl,InvalidUtf8,Dot)
+.It Fl Fl b2-endpoint Ar string
+Endpoint for the service.
+.It Fl Fl b2-hard-delete
+Permanently delete files on remote removal, otherwise hide files.
+.It Fl Fl b2-key Ar string
+Application Key
+.It Fl Fl b2-memory-pool-flush-time Ar Duration
+How often internal memory buffer pools will be flushed. (default 1m0s)
+.It Fl Fl b2-memory-pool-use-mmap
+Whether to use mmap buffers in internal memory pool.
+.It Fl Fl b2-test-mode Ar string
+A flag string for X-Bz-Test-Mode header for debugging.
+.It Fl Fl b2-upload-cutoff Ar SizeSuffix
+Cutoff for switching to chunked upload. (default 200M)
+.It Fl Fl b2-versions
+Include old versions in directory listings.
+.It Fl Fl box-access-token Ar string
+Box App Primary Access Token
+.It Fl Fl box-auth-url Ar string
+Auth server URL.
+.It Fl Fl box-box-config-file Ar string
+Box App config.json location
+.It Fl Fl box-box-sub-type Ar string
+(default "user")
+.It Fl Fl box-client-id Ar string
+OAuth Client Id
+.It Fl Fl box-client-secret Ar string
+OAuth Client Secret
+.It Fl Fl box-commit-retries int
+Max number of times to try committing a multipart file. (default 100)
+.It Fl Fl box-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,BackSlash,Del,Ctl,RightSpace,InvalidUtf8,Dot)
+.It Fl Fl box-root-folder-id Ar string
+Fill in for rclone to use a non root folder as its starting point.
+.It Fl Fl box-token Ar string
+OAuth Access Token as a JSON blob.
+.It Fl Fl box-token-url Ar string
+Token server url.
+.It Fl Fl box-upload-cutoff Ar SizeSuffix
+Cutoff for switching to multipart upload (>= 50MB). (default 50M)
+.It Fl Fl cache-chunk-clean-interval Ar Duration
+How often should the cache perform cleanups of the chunk storage. (default 1m0s)
+.It Fl Fl cache-chunk-no-memory
+Disable the in-memory cache for storing chunks during streaming.
+.It Fl Fl cache-chunk-path Ar string
+Directory to cache chunk files. (default "$HOME/.cache/rclone/cache-backend")
+.It Fl Fl cache-chunk-size Ar SizeSuffix
+The size of a chunk (partial file data). (default 5M)
+.It Fl Fl cache-chunk-total-size Ar SizeSuffix
+The total size that the chunks can take up on the local disk. (default 10G)
+.It Fl Fl cache-db-path Ar string
+Directory to store file structure metadata DB. (default "$HOME/.cache/rclone/cache-backend")
+.It Fl Fl cache-db-purge
+Clear all the cached data for this remote on start.
+.It Fl Fl cache-db-wait-time Ar Duration
+How long to wait for the DB to be available - 0 is unlimited (default 1s)
+.It Fl Fl cache-info-age Ar Duration
+How long to cache file structure information (directory listings, file size, times, etc.). (default 6h0m0s)
+.It Fl Fl cache-plex-insecure Ar string
+Skip all certificate verification when connecting to the Plex server
+.It Fl Fl cache-plex-password Ar string
+The password of the Plex user (obscured)
+.It Fl Fl cache-plex-url Ar string
+The URL of the Plex server
+.It Fl Fl cache-plex-username Ar string
+The username of the Plex user
+.It Fl Fl cache-read-retries int
+How many times to retry a read from a cache storage. (default 10)
+.It Fl Fl cache-remote Ar string
+Remote to cache.
+.It Fl Fl cache-rps int
+Limits the number of requests per second to the source FS (-1 to disable) (default -1)
+.It Fl Fl cache-tmp-upload-path Ar string
+Directory to keep temporary files until they are uploaded.
+.It Fl Fl cache-tmp-wait-time Ar Duration
+How long should files be stored in local cache before being uploaded (default 15s)
+.It Fl Fl cache-workers int
+How many workers should run in parallel to download chunks. (default 4)
+.It Fl Fl cache-writes
+Cache file data on writes through the FS
+.It Fl Fl chunker-chunk-size Ar SizeSuffix
+Files larger than chunk size will be split in chunks. (default 2G)
+.It Fl Fl chunker-fail-hard
+Choose how chunker should handle files with missing or invalid chunks.
+.It Fl Fl chunker-hash-type Ar string
+Choose how chunker handles hash sums. All modes but "none" require metadata. (default "md5")
+.It Fl Fl chunker-meta-format Ar string
+Format of the metadata object or "none". By default "simplejson". (default "simplejson")
+.It Fl Fl chunker-name-format Ar string
+String format of chunk file names. (default "*.rclone_chunk.###")
+.It Fl Fl chunker-remote Ar string
+Remote to chunk/unchunk.
+.It Fl Fl chunker-start-from int
+Minimum valid chunk number. Usually 0 or 1. (default 1)
+.It Fl L , Fl Fl copy-links
+Follow symlinks and copy the pointed to item.
+.It Fl Fl crypt-directory-name-encryption
+Option to either encrypt directory names or leave them intact. (default true)
+.It Fl Fl crypt-filename-encryption Ar string
+How to encrypt the filenames. (default "standard")
+.It Fl Fl crypt-password Ar string
+Password or pass phrase for encryption. (obscured)
+.It Fl Fl crypt-password2 Ar string
+Password or pass phrase for salt. Optional but recommended. (obscured)
+.It Fl Fl crypt-remote Ar string
+Remote to encrypt/decrypt.
+.It Fl Fl crypt-server-side-across-configs
+Allow server-side operations (e.g. copy) to work across different crypt configs.
+.It Fl Fl crypt-show-mapping
+For all files listed show how the names encrypt.
+.It Fl Fl drive-acknowledge-abuse
+Set to allow files which return cannotDownloadAbusiveFile to be downloaded.
+.It Fl Fl drive-allow-import-name-change
+Allow the filetype to change when uploading Google docs (e.g. file.doc to file.docx). This will confuse sync and reupload every time.
+.It Fl Fl drive-auth-owner-only
+Only consider files owned by the authenticated user.
+.It Fl Fl drive-auth-url Ar string
+Auth server URL.
+.It Fl Fl drive-chunk-size Ar SizeSuffix
+Upload chunk size. Must a power of 2 >= 256k. (default 8M)
+.It Fl Fl drive-client-id Ar string
+OAuth Client Id
+.It Fl Fl drive-client-secret Ar string
+OAuth Client Secret
+.It Fl Fl drive-disable-http2
+Disable drive using http2 (default true)
+.It Fl Fl drive-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default InvalidUtf8)
+.It Fl Fl drive-export-formats Ar string
+Comma separated list of preferred formats for downloading Google docs. (default "docx,xlsx,pptx,svg")
+.It Fl Fl drive-formats Ar string
+Deprecated: see export_formats
+.It Fl Fl drive-impersonate Ar string
+Impersonate this user when using a service account.
+.It Fl Fl drive-import-formats Ar string
+Comma separated list of preferred formats for uploading Google docs.
+.It Fl Fl drive-keep-revision-forever
+Keep new head revision of each file forever.
+.It Fl Fl drive-list-chunk int
+Size of listing chunk 100-1000. 0 to disable. (default 1000)
+.It Fl Fl drive-pacer-burst int
+Number of API calls to allow without sleeping. (default 100)
+.It Fl Fl drive-pacer-min-sleep Ar Duration
+Minimum time to sleep between API calls. (default 100ms)
+.It Fl Fl drive-root-folder-id Ar string
+ID of the root folder
+.It Fl Fl drive-scope Ar string
+Scope that rclone should use when requesting access from drive.
+.It Fl Fl drive-server-side-across-configs
+Allow server-side operations (e.g. copy) to work across different drive configs.
+.It Fl Fl drive-service-account-credentials Ar string
+Service Account Credentials JSON blob
+.It Fl Fl drive-service-account-file Ar string
+Service Account Credentials JSON file path
+.It Fl Fl drive-shared-with-me
+Only show files that are shared with me.
+.It Fl Fl drive-size-as-quota
+Show sizes as storage quota usage, not actual size.
+.It Fl Fl drive-skip-checksum-gphotos
+Skip MD5 checksum on Google photos and videos only.
+.It Fl Fl drive-skip-gdocs
+Skip google documents in all listings.
+.It Fl Fl drive-skip-shortcuts
+If set skip shortcut files
+.It Fl Fl drive-starred-only
+Only show files that are starred.
+.It Fl Fl drive-stop-on-upload-limit
+Make upload limit errors be fatal
+.It Fl Fl drive-team-drive Ar string
+ID of the Team Drive
+.It Fl Fl drive-token Ar string
+OAuth Access Token as a JSON blob.
+.It Fl Fl drive-token-url Ar string
+Token server url.
+.It Fl Fl drive-trashed-only
+Only show files that are in the trash.
+.It Fl Fl drive-upload-cutoff Ar SizeSuffix
+Cutoff for switching to chunked upload (default 8M)
+.It Fl Fl drive-use-created-date
+Use file created date instead of modified date.,
+.It Fl Fl drive-use-shared-date
+Use date file was shared instead of modified date.
+.It Fl Fl drive-use-trash
+Send files to the trash instead of deleting permanently. (default true)
+.It Fl Fl drive-v2-download-min-size Ar SizeSuffix
+If Object's are greater, use drive v2 API to download. (default off)
+.It Fl Fl dropbox-auth-url Ar string
+Auth server URL.
+.It Fl Fl dropbox-chunk-size Ar SizeSuffix
+Upload chunk size. (< 150M). (default 48M)
+.It Fl Fl dropbox-client-id Ar string
+OAuth Client Id
+.It Fl Fl dropbox-client-secret Ar string
+OAuth Client Secret
+.It Fl Fl dropbox-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,BackSlash,Del,RightSpace,InvalidUtf8,Dot)
+.It Fl Fl dropbox-impersonate Ar string
+Impersonate this user when using a business account.
+.It Fl Fl dropbox-token Ar string
+OAuth Access Token as a JSON blob.
+.It Fl Fl dropbox-token-url Ar string
+Token server url.
+.It Fl Fl fichier-api-key Ar string
+Your API Key, get it from https://1fichier.com/console/params.pl
+.It Fl Fl fichier-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,LtGt,DoubleQuote,SingleQuote,BackQuote,Dollar,BackSlash,Del,Ctl,LeftSpace,RightSpace,InvalidUtf8,Dot)
+.It Fl Fl fichier-shared-folder Ar string
+If you want to download a shared folder, add this parameter
+.It Fl Fl ftp-concurrency int
+Maximum number of FTP simultaneous connections, 0 for unlimited
+.It Fl Fl ftp-disable-epsv
+Disable using EPSV even if server advertises support
+.It Fl Fl ftp-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,Del,Ctl,RightSpace,Dot)
+.It Fl Fl ftp-explicit-tls
+Use FTP over TLS (Explicit)
+.It Fl Fl ftp-host Ar string
+FTP host to connect to
+.It Fl Fl ftp-no-check-certificate
+Do not verify the TLS certificate of the server
+.It Fl Fl ftp-pass Ar string
+FTP password (obscured)
+.It Fl Fl ftp-port Ar string
+FTP port, leave blank to use default (21)
+.It Fl Fl ftp-tls
+Use FTPS over TLS (Implicit)
+.It Fl Fl ftp-user Ar string
+FTP username, leave blank for current username, $USER
+.It Fl Fl gcs-anonymous
+Access public buckets and objects without credentials
+.It Fl Fl gcs-auth-url Ar string
+Auth server URL.
+.It Fl Fl gcs-bucket-acl Ar string
+Access Control List for new buckets.
+.It Fl Fl gcs-bucket-policy-only
+Access checks should use bucket-level IAM policies.
+.It Fl Fl gcs-client-id Ar string
+OAuth Client Id
+.It Fl Fl gcs-client-secret Ar string
+OAuth Client Secret
+.It Fl Fl gcs-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,CrLf,InvalidUtf8,Dot)
+.It Fl Fl gcs-location Ar string
+Location for the newly created buckets.
+.It Fl Fl gcs-object-acl Ar string
+Access Control List for new objects.
+.It Fl Fl gcs-project-number Ar string
+Project number.
+.It Fl Fl gcs-service-account-file Ar string
+Service Account Credentials JSON file path
+.It Fl Fl gcs-storage-class Ar string
+The storage class to use when storing objects in Google Cloud Storage.
+.It Fl Fl gcs-token Ar string
+OAuth Access Token as a JSON blob.
+.It Fl Fl gcs-token-url Ar string
+Token server url.
+.It Fl Fl gphotos-auth-url Ar string
+Auth server URL.
+.It Fl Fl gphotos-client-id Ar string
+OAuth Client Id
+.It Fl Fl gphotos-client-secret Ar string
+OAuth Client Secret
+.It Fl Fl gphotos-read-only
+Set to make the Google Photos backend read only.
+.It Fl Fl gphotos-read-size
+Set to read the size of media items.
+.It Fl Fl gphotos-start-year int
+Year limits the photos to be downloaded to those which are uploaded after the given year (default 2000)
+.It Fl Fl gphotos-token Ar string
+OAuth Access Token as a JSON blob.
+.It Fl Fl gphotos-token-url Ar string
+Token server url.
+.It Fl Fl http-headers CommaSepList
+Set HTTP headers for all transactions
+.It Fl Fl http-no-head
+Don't use HEAD requests to find file sizes in dir listing
+.It Fl Fl http-no-slash
+Set this if the site doesn't end directories with /
+.It Fl Fl http-url Ar string
+URL of http host to connect to
+.It Fl Fl hubic-auth-url Ar string
+Auth server URL.
+.It Fl Fl hubic-chunk-size Ar SizeSuffix
+Above this size files will be chunked into a _segments container. (default 5G)
+.It Fl Fl hubic-client-id Ar string
+OAuth Client Id
+.It Fl Fl hubic-client-secret Ar string
+OAuth Client Secret
+.It Fl Fl hubic-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,InvalidUtf8)
+.It Fl Fl hubic-no-chunk
+Don't chunk files during streaming upload.
+.It Fl Fl hubic-token Ar string
+OAuth Access Token as a JSON blob.
+.It Fl Fl hubic-token-url Ar string
+Token server url.
+.It Fl Fl jottacloud-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,LtGt,DoubleQuote,Colon,Question,Asterisk,Pipe,Del,Ctl,InvalidUtf8,Dot)
+.It Fl Fl jottacloud-hard-delete
+Delete files permanently rather than putting them into the trash.
+.It Fl Fl jottacloud-md5-memory-limit Ar SizeSuffix
+Files bigger than this will be cached on disk to calculate the MD5 if required. (default 10M)
+.It Fl Fl jottacloud-trashed-only
+Only show files that are in the trash.
+.It Fl Fl jottacloud-upload-resume-limit Ar SizeSuffix
+Files bigger than this can be resumed if the upload fail's. (default 10M)
+.It Fl Fl koofr-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,BackSlash,Del,Ctl,InvalidUtf8,Dot)
+.It Fl Fl koofr-endpoint Ar string
+The Koofr API endpoint to use (default "https://app.koofr.net")
+.It Fl Fl koofr-mountid Ar string
+Mount ID of the mount to use. If omitted, the primary mount is used.
+.It Fl Fl koofr-password Ar string
+Your Koofr password for rclone (generate one at https://app.koofr.net/app/admin/preferences/password) (obscured)
+.It Fl Fl koofr-setmtime
+Does the backend support setting modification time. Set this to false if you use a mount ID that points to a Dropbox or Amazon Drive backend. (default true)
+.It Fl Fl koofr-user Ar string
+Your Koofr user name
+.It Fl l , Fl Fl links
+Translate symlinks to/from regular files with a '.rclonelink' extension
+.It Fl Fl local-case-insensitive
+Force the filesystem to report itself as case insensitive
+.It Fl Fl local-case-sensitive
+Force the filesystem to report itself as case sensitive.
+.It Fl Fl local-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,Dot)
+.It Fl Fl local-no-check-updated
+Don't check to see if the files change during upload
+.It Fl Fl local-no-set-modtime
+Disable setting modtime
+.It Fl Fl local-no-sparse
+Disable sparse files for multi-thread downloads
+.It Fl Fl local-no-unicode-normalization
+Don't apply unicode normalization to paths and filenames (Deprecated)
+.It Fl Fl local-nounc Ar string
+Disable UNC (long path names) conversion on Windows
+.It Fl Fl mailru-check-hash
+What should copy do if file checksum is mismatched or invalid (default true)
+.It Fl Fl mailru-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,LtGt,DoubleQuote,Colon,Question,Asterisk,Pipe,BackSlash,Del,Ctl,InvalidUtf8,Dot)
+.It Fl Fl mailru-pass Ar string
+Password (obscured)
+.It Fl Fl mailru-speedup-enable
+Skip full upload if there is another file with same data hash. (default true)
+.It Fl Fl mailru-speedup-file-patterns Ar string
+Comma separated list of file name patterns eligible for speedup (put by hash). (default "*.mkv,*.avi,*.mp4,*.mp3,*.zip,*.gz,*.rar,*.pdf")
+.It Fl Fl mailru-speedup-max-disk Ar SizeSuffix
+This option allows you to disable speedup (put by hash) for large files (default 3G)
+.It Fl Fl mailru-speedup-max-memory Ar SizeSuffix
+Files larger than the size given below will always be hashed on disk. (default 32M)
+.It Fl Fl mailru-user Ar string
+User name (usually email)
+.It Fl Fl mega-debug
+Output more debug from Mega.
+.It Fl Fl mega-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,InvalidUtf8,Dot)
+.It Fl Fl mega-hard-delete
+Delete files permanently rather than putting them into the trash.
+.It Fl Fl mega-pass Ar string
+Password. (obscured)
+.It Fl Fl mega-user Ar string
+User name
+.It Fl x , Fl Fl one-file-system
+Don't cross filesystem boundaries (unix/macOS only).
+.It Fl Fl onedrive-auth-url Ar string
+Auth server URL.
+.It Fl Fl onedrive-chunk-size Ar SizeSuffix
+Chunk size to upload files with - must be multiple of 320k (327,680 bytes). (default 10M)
+.It Fl Fl onedrive-client-id Ar string
+OAuth Client Id
+.It Fl Fl onedrive-client-secret Ar string
+OAuth Client Secret
+.It Fl Fl onedrive-drive-id Ar string
+The ID of the drive to use
+.It Fl Fl onedrive-drive-type Ar string
+The type of the drive ( personal | business | documentLibrary )
+.It Fl Fl onedrive-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,LtGt,DoubleQuote,Colon,Question,Asterisk,Pipe,Hash,Percent,BackSlash,Del,Ctl,LeftSpace,LeftTilde,RightSpace,RightPeriod,InvalidUtf8,Dot)
+.It Fl Fl onedrive-expose-onenote-files
+Set to make OneNote files show up in directory listings.
+.It Fl Fl onedrive-no-versions
+Remove all versions on modifying operations
+.It Fl Fl onedrive-server-side-across-configs
+Allow server-side operations (e.g. copy) to work across different onedrive configs.
+.It Fl Fl onedrive-token Ar string
+OAuth Access Token as a JSON blob.
+.It Fl Fl onedrive-token-url Ar string
+Token server url.
+.It Fl Fl opendrive-chunk-size Ar SizeSuffix
+Files will be uploaded in chunks this size. (default 10M)
+.It Fl Fl opendrive-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,LtGt,DoubleQuote,Colon,Question,Asterisk,Pipe,BackSlash,LeftSpace,LeftCrLfHtVt,RightSpace,RightCrLfHtVt,InvalidUtf8,Dot)
+.It Fl Fl opendrive-password Ar string
+Password. (obscured)
+.It Fl Fl opendrive-username Ar string
+Username
+.It Fl Fl pcloud-auth-url Ar string
+Auth server URL.
+.It Fl Fl pcloud-client-id Ar string
+OAuth Client Id
+.It Fl Fl pcloud-client-secret Ar string
+OAuth Client Secret
+.It Fl Fl pcloud-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,BackSlash,Del,Ctl,InvalidUtf8,Dot)
+.It Fl Fl pcloud-hostname Ar string
+Hostname to connect to. (default "api.pcloud.com")
+.It Fl Fl pcloud-root-folder-id Ar string
+Fill in for rclone to use a non root folder as its starting point. (default "d0")
+.It Fl Fl pcloud-token Ar string
+OAuth Access Token as a JSON blob.
+.It Fl Fl pcloud-token-url Ar string
+Token server url.
+.It Fl Fl premiumizeme-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,DoubleQuote,BackSlash,Del,Ctl,InvalidUtf8,Dot)
+.It Fl Fl putio-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,BackSlash,Del,Ctl,InvalidUtf8,Dot)
+.It Fl Fl qingstor-access-key-id Ar string
+QingStor Access Key ID
+.It Fl Fl qingstor-chunk-size Ar SizeSuffix
+Chunk size to use for uploading. (default 4M)
+.It Fl Fl qingstor-connection-retries int
+Number of connection retries. (default 3)
+.It Fl Fl qingstor-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,Ctl,InvalidUtf8)
+.It Fl Fl qingstor-endpoint Ar string
+Enter an endpoint URL to connection QingStor API.
+.It Fl Fl qingstor-env-auth
+Get QingStor credentials from runtime. Only applies if access_key_id and secret_access_key is blank.
+.It Fl Fl qingstor-secret-access-key Ar string
+QingStor Secret Access Key (password)
+.It Fl Fl qingstor-upload-concurrency int
+Concurrency for multipart uploads. (default 1)
+.It Fl Fl qingstor-upload-cutoff Ar SizeSuffix
+Cutoff for switching to chunked upload (default 200M)
+.It Fl Fl qingstor-zone Ar string
+Zone to connect to.
+.It Fl Fl s3-access-key-id Ar string
+AWS Access Key ID.
+.It Fl Fl s3-acl Ar string
+Canned ACL used when creating buckets and storing or copying objects.
+.It Fl Fl s3-bucket-acl Ar string
+Canned ACL used when creating buckets.
+.It Fl Fl s3-chunk-size Ar SizeSuffix
+Chunk size to use for uploading. (default 5M)
+.It Fl Fl s3-copy-cutoff Ar SizeSuffix
+Cutoff for switching to multipart copy (default 4.656G)
+.It Fl Fl s3-disable-checksum
+Don't store MD5 checksum with object metadata
+.It Fl Fl s3-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,InvalidUtf8,Dot)
+.It Fl Fl s3-endpoint Ar string
+Endpoint for S3 API.
+.It Fl Fl s3-env-auth
+Get AWS credentials from runtime (environment variables or EC2/ECS meta data if no env vars).
+.It Fl Fl s3-force-path-style
+If true use path style access if false use virtual hosted style. (default true)
+.It Fl Fl s3-leave-parts-on-error
+If true avoid calling abort upload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.
+.It Fl Fl s3-list-chunk int
+Size of listing chunk (response list for each ListObject S3 request). (default 1000)
+.It Fl Fl s3-location-constraint Ar string
+Location constraint - must be set to match the Region.
+.It Fl Fl s3-max-upload-parts int
+Maximum number of parts in a multipart upload. (default 10000)
+.It Fl Fl s3-memory-pool-flush-time Ar Duration
+How often internal memory buffer pools will be flushed. (default 1m0s)
+.It Fl Fl s3-memory-pool-use-mmap
+Whether to use mmap buffers in internal memory pool.
+.It Fl Fl s3-no-check-bucket
+If set, don't attempt to check the bucket exists or create it
+.It Fl Fl s3-profile Ar string
+Profile to use in the shared credentials file
+.It Fl Fl s3-provider Ar string
+Choose your S3 provider.
+.It Fl Fl s3-region Ar string
+Region to connect to.
+.It Fl Fl s3-secret-access-key Ar string
+AWS Secret Access Key (password)
+.It Fl Fl s3-server-side-encryption Ar string
+The server-side encryption algorithm used when storing this object in S3.
+.It Fl Fl s3-session-token Ar string
+An AWS session token
+.It Fl Fl s3-shared-credentials-file Ar string
+Path to the shared credentials file
+.It Fl Fl s3-sse-customer-algorithm Ar string
+If using SSE-C, the server-side encryption algorithm used when storing this object in S3.
+.It Fl Fl s3-sse-customer-key Ar string
+If using SSE-C you must provide the secret encryption key used to encrypt/decrypt your data.
+.It Fl Fl s3-sse-customer-key-md5 Ar string
+If using SSE-C you must provide the secret encryption key MD5 checksum.
+.It Fl Fl s3-sse-kms-key-id Ar string
+If using KMS ID you must provide the ARN of Key.
+.It Fl Fl s3-storage-class Ar string
+The storage class to use when storing new objects in S3.
+.It Fl Fl s3-upload-concurrency int
+Concurrency for multipart uploads. (default 4)
+.It Fl Fl s3-upload-cutoff Ar SizeSuffix
+Cutoff for switching to chunked upload (default 200M)
+.It Fl Fl s3-use-accelerate-endpoint
+If true use the AWS S3 accelerated endpoint.
+.It Fl Fl s3-v2-auth
+If true use v2 authentication.
+.It Fl Fl seafile-2fa
+Two-factor authentication ('true' if the account has 2FA enabled)
+.It Fl Fl seafile-create-library
+Should rclone create a library if it doesn't exist
+.It Fl Fl seafile-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,DoubleQuote,BackSlash,Ctl,InvalidUtf8)
+.It Fl Fl seafile-library Ar string
+Name of the library. Leave blank to access all non-encrypted libraries.
+.It Fl Fl seafile-library-key Ar string
+Library password (for encrypted libraries only). Leave blank if you pass it through the command line. (obscured)
+.It Fl Fl seafile-pass Ar string
+Password (obscured)
+.It Fl Fl seafile-url Ar string
+URL of seafile host to connect to
+.It Fl Fl seafile-user Ar string
+User name (usually email address)
+.It Fl Fl sftp-ask-password
+Allow asking for SFTP password when needed.
+.It Fl Fl sftp-disable-hashcheck
+Disable the execution of SSH commands to determine if remote file hashing is available.
+.It Fl Fl sftp-host Ar string
+SSH host to connect to
+.It Fl Fl sftp-key-file Ar string
+Path to PEM-encoded private key file, leave blank or set key-use-agent to use ssh-agent.
+.It Fl Fl sftp-key-file-pass Ar string
+The passphrase to decrypt the PEM-encoded private key file. (obscured)
+.It Fl Fl sftp-key-pem Ar string
+Raw PEM-encoded private key, If specified, will override key_file parameter.
+.It Fl Fl sftp-key-use-agent
+When set forces the usage of the ssh-agent.
+.It Fl Fl sftp-md5sum-command Ar string
+The command used to read md5 hashes. Leave blank for autodetect.
+.It Fl Fl sftp-pass Ar string
+SSH password, leave blank to use ssh-agent. (obscured)
+.It Fl Fl sftp-path-override Ar string
+Override path used by SSH connection.
+.It Fl Fl sftp-port Ar string
+SSH port, leave blank to use default (22)
+.It Fl Fl sftp-server-command Ar string
+Specifies the path or command to run a sftp server on the remote host.
+.It Fl Fl sftp-set-modtime
+Set the modified time on the remote if set. (default true)
+.It Fl Fl sftp-sha1sum-command Ar string
+The command used to read sha1 hashes. Leave blank for autodetect.
+.It Fl Fl sftp-skip-links
+Set to skip any symlinks and any other non regular files.
+.It Fl Fl sftp-subsystem Ar string
+Specifies the SSH2 subsystem on the remote host. (default "sftp")
+.It Fl Fl sftp-use-insecure-cipher
+Enable the use of insecure ciphers and key exchange methods.
+.It Fl Fl sftp-user Ar string
+SSH username, leave blank for current username, ncw
+.It Fl Fl sharefile-chunk-size Ar SizeSuffix
+Upload chunk size. Must a power of 2 >= 256k. (default 64M)
+.It Fl Fl sharefile-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,LtGt,DoubleQuote,Colon,Question,Asterisk,Pipe,BackSlash,Ctl,LeftSpace,LeftPeriod,RightSpace,RightPeriod,InvalidUtf8,Dot)
+.It Fl Fl sharefile-endpoint Ar string
+Endpoint for API calls.
+.It Fl Fl sharefile-root-folder-id Ar string
+ID of the root folder
+.It Fl Fl sharefile-upload-cutoff Ar SizeSuffix
+Cutoff for switching to multipart upload. (default 128M)
+.It Fl Fl skip-links
+Don't warn about skipped symlinks.
+.It Fl Fl sugarsync-access-key-id Ar string
+Sugarsync Access Key ID.
+.It Fl Fl sugarsync-app-id Ar string
+Sugarsync App ID.
+.It Fl Fl sugarsync-authorization Ar string
+Sugarsync authorization
+.It Fl Fl sugarsync-authorization-expiry Ar string
+Sugarsync authorization expiry
+.It Fl Fl sugarsync-deleted-id Ar string
+Sugarsync deleted folder id
+.It Fl Fl sugarsync-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,Ctl,InvalidUtf8,Dot)
+.It Fl Fl sugarsync-hard-delete
+Permanently delete files if true
+.It Fl Fl sugarsync-private-access-key Ar string
+Sugarsync Private Access Key
+.It Fl Fl sugarsync-refresh-token Ar string
+Sugarsync refresh token
+.It Fl Fl sugarsync-root-id Ar string
+Sugarsync root id
+.It Fl Fl sugarsync-user Ar string
+Sugarsync user
+.It Fl Fl swift-application-credential-id Ar string
+Application Credential ID (OS_APPLICATION_CREDENTIAL_ID)
+.It Fl Fl swift-application-credential-name Ar string
+Application Credential Name (OS_APPLICATION_CREDENTIAL_NAME)
+.It Fl Fl swift-application-credential-secret Ar string
+Application Credential Secret (OS_APPLICATION_CREDENTIAL_SECRET)
+.It Fl Fl swift-auth Ar string
+Authentication URL for server (OS_AUTH_URL).
+.It Fl Fl swift-auth-token Ar string
+Auth Token from alternate authentication - optional (OS_AUTH_TOKEN)
+.It Fl Fl swift-auth-version int
+AuthVersion - optional - set to (1,2,3) if your auth URL has no version (ST_AUTH_VERSION)
+.It Fl Fl swift-chunk-size Ar SizeSuffix
+Above this size files will be chunked into a _segments container. (default 5G)
+.It Fl Fl swift-domain Ar string
+User domain - optional (v3 auth) (OS_USER_DOMAIN_NAME)
+.It Fl Fl swift-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,InvalidUtf8)
+.It Fl Fl swift-endpoint-type Ar string
+Endpoint type to choose from the service catalogue (OS_ENDPOINT_TYPE) (default "public")
+.It Fl Fl swift-env-auth
+Get swift credentials from environment variables in standard OpenStack form.
+.It Fl Fl swift-key Ar string
+API key or password (OS_PASSWORD).
+.It Fl Fl swift-no-chunk
+Don't chunk files during streaming upload.
+.It Fl Fl swift-region Ar string
+Region name - optional (OS_REGION_NAME)
+.It Fl Fl swift-storage-policy Ar string
+The storage policy to use when creating a new container
+.It Fl Fl swift-storage-url Ar string
+Storage URL - optional (OS_STORAGE_URL)
+.It Fl Fl swift-tenant Ar string
+Tenant name - optional for v1 auth, this or tenant_id required otherwise (OS_TENANT_NAME or OS_PROJECT_NAME)
+.It Fl Fl swift-tenant-domain Ar string
+Tenant domain - optional (v3 auth) (OS_PROJECT_DOMAIN_NAME)
+.It Fl Fl swift-tenant-id Ar string
+Tenant ID - optional for v1 auth, this or tenant required otherwise (OS_TENANT_ID)
+.It Fl Fl swift-user Ar string
+User name to log in (OS_USERNAME).
+.It Fl Fl swift-user-id Ar string
+User ID to log in - optional - most swift systems use user and leave this blank (v3 auth) (OS_USER_ID).
+.It Fl Fl tardigrade-access-grant Ar string
+Access Grant.
+.It Fl Fl tardigrade-api-key Ar string
+API Key.
+.It Fl Fl tardigrade-passphrase Ar string
+Encryption Passphrase. To access existing objects enter passphrase used for uploading.
+.It Fl Fl tardigrade-provider Ar string
+Choose an authentication method. (default "existing")
+.It Fl Fl tardigrade-satellite-address <nodeid>@<address>:<port>
+Satellite Address. Custom satellite address should match the format: <nodeid>@<address>:<port>. (default "us-central-1.tardigrade.io")
+.It Fl Fl union-action-policy Ar string
+Policy to choose upstream on ACTION category. (default "epall")
+.It Fl Fl union-cache-time int
+Cache time of usage and free space (in seconds). This option is only useful when a path preserving policy is used. (default 120)
+.It Fl Fl union-create-policy Ar string
+Policy to choose upstream on CREATE category. (default "epmfs")
+.It Fl Fl union-search-policy Ar string
+Policy to choose upstream on SEARCH category. (default "ff")
+.It Fl Fl union-upstreams Ar string
+List of space separated upstreams.
+.It Fl Fl webdav-bearer-token Ar string
+Bearer token instead of user/pass (e.g. a Macaroon)
+.It Fl Fl webdav-bearer-token-command Ar string
+Command to run to get a bearer token
+.It Fl Fl webdav-pass Ar string
+Password. (obscured)
+.It Fl Fl webdav-url Ar string
+URL of http host to connect to
+.It Fl Fl webdav-user Ar string
+User name
+.It Fl Fl webdav-vendor Ar string
+Name of the Webdav site/service/software you are using
+.It Fl Fl yandex-auth-url Ar string
+Auth server URL.
+.It Fl Fl yandex-client-id Ar string
+OAuth Client Id
+.It Fl Fl yandex-client-secret Ar string
+OAuth Client Secret
+.It Fl Fl yandex-encoding Ar MultiEncoder
+This sets the encoding for the backend. (default Slash,Del,Ctl,InvalidUtf8,Dot)
+.It Fl Fl yandex-token Ar string
+OAuth Access Token as a JSON blob.
+.It Fl Fl yandex-token-url Ar string
+Token server url.
+.El
 .Ss Filters
 See
 .Xr rclone-filter 1 ,
@@ -1246,42 +1246,187 @@ controls which facility it uses.
 All log messages are prefixed with their level in capitals, e.g. INFO
 which makes it easy to grep the log file for different kinds of
 information.
-.Ss Enivronement variables
+.Sh ENVIRONMENT
+Rclone can be configured entirely using environment variables.
+.Ss Options
+.Pp
+Every option in rclone can have its default set by environment
+variable. They are named according to the following syntax:
+.Pp
+.D1 RCLONE_ Ns Ar OPTION
+.Pp
+where
+.Ar OPTION
+is the long option name in upper case and with
+.Fl
+replaced by _. For example,
+.Fl Fl stats Ar 5s
+can be replaced with
+.Ev RCLONE_STATS=5s.
+Or replace
+.Fl Fl drive-use-trash ,
+by setting
+.Ev RCLONE_DRIVE_USE_TRASH=true .
+.Pp
+
+.Ss Config file
+Likewise, options can be set in the config file, using the following syntax:
+.Pp
+.D1 RCLONE_CONFIG Ns _ Ns Ar REMOTE Ns _ Ns Ar OPTION
+.Pp
+where
+.Ar REMOTE
+and
+.Ar OPTION
+are the upper case version of the remote name and the long option name (with
+.Fl
+replaced by _).
+Remates and option names can be found in the config file (default location is
+.Pa $HOME/.config/rclone/rclone.conf ,
+see the documentation about
+.Fl Fl config
+in
+.Xr rclone-flags 1
+for more details).
+.Pp
+For example, to configure an S3 remote named
+.Em mys3:
+without a config file :
+.Pp
+.Dl export RCLONE_CONFIG_MYS3_TYPE=s3
+.Dl export RCLONE_CONFIG_MYS3_ACCESS_KEY_ID=XXX
+.Dl export RCLONE_CONFIG_MYS3_SECRET_ACCESS_KEY=XXX
+.Dl rclone lsd MYS3:
+.Dl          -1 2016-09-21 12:54:21        -1 my-bucket
+.Dl rclone listremotes | grep mys3
+.Dl mys3:
+.Pp
+Note that if you want to create a remote using environment variables
+you must create the
+.D1 RCLONE_CONFIG Ns _ Ns Ar REMOTE Ns _ Ns Ar OPTION Ns _TYPE
+variable as above.
+.Ss Precedence
+The various different methods of backend configuration are read in
+this order and the first one with a value is used:
+.Bl -dash -compact
+.It
+Flag values as supplied on the command line, e.g.
+.Fl Fl drive-use-trash
+.It
+Remote specific environment vars, e.g.
+.Ev RCLONE_CONFIG_MYREMOTE_USE_TRASH
+.It
+Backend specific environment vars, e.g.
+.Ev RCLONE_DRIVE_USE_TRASH
+.It
+Config file, e.g.
+.Cm use_trash=false
+.It
+Default values, e.g. true. These can't be changed.
+.El
+.Pp
+So if both
+.Fl Fl drive-use-trash
+is supplied on the config line and an environment variable
+.Ev RCLONE_DRIVE_USE_TRASH
+is set, the command line flag will take preference.
+.Pp
+For non backend configuration the order is as follows:
+.Bl -dash -compact
+.It
+Flag values as supplied on the command line, e.g.
+.Fl Fl stats Ar 5s
+.It
+Environment vars, e.g.
+Ev RCLONE_STATS=5s.
+.It
+Default values, e.g. 1m. These can't be changed.
+.El
+.Ss Other environment variables ###
+.Bl -tag -width MANPAGER
+.It Ev RCLONE_CONFIG_PASS
+Your config file password (see
+.Xr rclone-config 1 )
+.It RCLONE_CONFIG_DIR
+rclone **sets** this variable for use in config files and sub processes to point to the directory holding the config file.
+.It HTTP_PROXY, HTTPS_PROXY and NO_PROXY (or the lowercase versions thereof).
+.Ev HTTPS_PROXY
+takes precedence over
+.Ev HTTP_PROXY for https requests.
+The environment values may be either a complete URL or a "host[:port]" for, in which case the "http" scheme is assumed.
+.El
+
 .Ss Error codes
-TODO
-\" .Sh EXAMPLES
-\" To list a remote
-\" .Dl $ rclone ls remote:path
-\" .Pp
-\" To copy /local/path to the remote
-\" .Dl $ rclone copy /local/path remote:path
-\" .Pp
-\" To sync /local/path to the remote
-\" .Dl $ rclone sync -i /local/path remote:path #
-\" .Pp
-\" To copy a single file, the destination remote must always be a directory. The following command
-\" will place in test.jpg in /tmp/download:
-\" .Dl rclone copy remote:test.jpg /tmp/download
-\" .Ss Advanced remote names
-\" To list files and directories in
-\" .Lk https://example.com/path/to/dir/
-\" .Dl rclone lsf --http-url https://example.com :http:path/to/dir
-\" .Pp
-\" To copy files and directories in
-\" .Lk https://example.com/path/to/dir
-\" to /tmp/dir:
-\" .Dl rclone copy --http-url https://example.com :http:path/to/dir /tmp/dir
-\" .Pp
-\" To copy files and directories from example.com in the relative
-\" directory path/to/dir to /tmp/dir using sftp.
-\" .Dl rclone copy --sftp-host example.com :sftp:path/to/dir /tmp/dir
-\" .Pp
+During the startup phase, rclone will exit immediately if an error is
+detected in the configuration.  There will always be a log message
+immediately before exiting.
+
+When rclone is running it will accumulate errors as it goes along, and
+only exit with a non-zero exit code if (after retries) there were
+still failed transfers.  For every error counted there will be a high
+priority log message (visible with
+.Fl q
+) showing the message and
+which file caused the problem. A high priority message is also shown
+when starting a retry so the user can see that any previous error
+messages may not be valid after the retry. If rclone has done a retry
+it will log a high priority message if the retry was successful.
+
+.Bl -tag -width Ds -compact
+.It 0
+success
+.It 1
+Syntax or usage error
+.It 2
+Error not otherwise categorised
+.It 3
+Directory not found
+.It 4
+File not found
+.It 5
+Temporary error (one that more retries might fix) (Retry errors)
+.It 6
+Less serious errors (like 461 errors from dropbox) (NoRetry errors)
+.It 7
+Fatal error (one that more retries won't fix, like account suspended) (Fatal errors)
+.It 8
+Transfer exceeded - limit set by --max-transfer reached
+.It 9
+Operation successful, but no files transferred
+.Sh EXAMPLES
+To list a remote
+.Dl $ rclone ls remote:path
+.Pp
+To copy /local/path to the remote
+.Dl $ rclone copy /local/path remote:path
+.Pp
+To sync /local/path to the remote
+.Dl $ rclone sync -i /local/path remote:path #
+.Pp
+To copy a single file, the destination remote must always be a directory. The following command
+will place in test.jpg in /tmp/download:
+.Dl rclone copy remote:test.jpg /tmp/download
+.Ss Advanced remote names
+To list files and directories in
+.Lk https://example.com/path/to/dir/
+.Dl rclone lsf --http-url https://example.com :http:path/to/dir
+.Pp
+To copy files and directories in
+.Lk https://example.com/path/to/dir
+to /tmp/dir:
+.Dl rclone copy --http-url https://example.com :http:path/to/dir /tmp/dir
+.Pp
+To copy files and directories from example.com in the relative
+directory path/to/dir to /tmp/dir using sftp.
+.Dl rclone copy --sftp-host example.com :sftp:path/to/dir /tmp/dir
+.Pp
 
 .Sh SEE ALSO
+.Xr rclone-config 1 ,
 .Xr rclone-filter 1 ,
 .Xr rclone-rc 1
-\" .Sh AUTHOR
-\" .Nm
-\" was written in Go by
-\" .An Nick Craig-Wood Aq Mt nick@craig-wood.com
-\" in 2014.
+.Sh AUTHOR
+.Nm
+was written in Go by
+.An Nick Craig-Wood Aq Mt nick@craig-wood.com
+in 2014.
