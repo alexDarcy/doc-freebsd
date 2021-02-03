@@ -13,7 +13,7 @@
 .Nm
 is a command line program to manage files between two storage systems. It supports a wide range of cloud storage providers, hence being is sometimes called
 .Qq The Swiss army knife of cloud storage .
-It provides functionnality similar to
+It provides functionality similar to
 .Xr rsync 1 ,
 .Xr cp 1 ,
 .Xr rm  1 ,
@@ -58,9 +58,9 @@ Copy files from source to dest, skipping already copied.
 .It Cm  copyurl
 Copy url content to dest.
 .It Cm  cryptcheck
-Cryptcheck checks the integrity of a crypted remote.
+Checks the integrity of a crypted remote.
 .It Cm  cryptdecode
-Cryptdecode returns unencrypted file names.
+Returns unencrypted file names.
 .It Cm  dedupe
 Interactively find duplicate filenames and delete/rename them.
 .It Cm  delete
@@ -132,8 +132,6 @@ List the contents of the remote in a tree like fashion.
 .It Cm  version
 Show the version number.
 .El
-
-
 .Ss Remote paths
 On local file system, the leading '/' will differentiate between relative directories, like
 .Em path/to/dir
@@ -148,7 +146,7 @@ refers to the same directory. This is not the case for fTP, SFTP, Dropbox for bu
 .Em remote:path/to/dir
 refers to your home directory, while
 .Em remote:/path/to/dir
-referts to a directory in the root
+refers to a directory in the root folder.
 .Pp
 An advanced form for creating remotes on the fly is to use
 .Em :backend:path/to/dir .
@@ -157,13 +155,14 @@ For example, listing all the directories in the root of folder on
 .Dl rclone lsd --http-url https://pub.rclone.org :http:
 Other examples are given in
 .Sx
+EXAMPLES .
 .Pp
  Remote names may only contain 0-9, A-Z ,a-z ,_ , - and space. They  may not start with -.
 .Sx Special characters
 Spaces or shell metacharacters (e.g. *, ?, $, ', ", etc.) must be quoted by single quotes (').
 If you want to send a single quote ('), you will need to used a double quote (").
 .Pp
-As a colon (:) mark a remote name in
+As a colon (:) marks a remote name in
 .Nm ,
 this may conflict with some filenames. Use either the absolute path or prefix the filename with ./, like this :
 .Dl    rclone sync -i ./sync:me remote:path
@@ -190,12 +189,12 @@ quicker than a download and re-upload.
 .Pp
 Server side copies will only be attempted if the remote names are the
 same.
-.Ss Options
-Flags are briefly described here. Please see
+.Pp
+.Ss Non-backend options
+Please see
 .Xr rclone-flags 1
-for a detailed exaplanation on each one of them .
-.Ss Non Backend Flags
-These flags are available for every command.
+for a detailed explanation on each one of them.
+These are available for every command:
 .Bl -tag -width Ds
 .It Fl Fl ask-password
 Allow prompt for password for encrypted configuration. (default true)
@@ -206,7 +205,9 @@ Make backups into hierarchy based in DIR.
 .It Fl Fl bind Ar string
 Local address to bind to for outgoing connections, IPv4, IPv6 or name.
 .It Fl Fl buffer-size Ar SizeSuffix
-In memory buffer size when reading files for each --transfer. (default 16M)
+In memory buffer size when reading files for each
+.Fl Fl transfers
+(default 16M).
 .It Fl Fl bwlimit Ar BwTimetable
 Bandwidth limit in kBytes/s, or use suffix b|k|M|G or a full timetable.
 .It Fl Fl bwlimit-file Ar BwTimetable
@@ -470,9 +471,10 @@ Set the user-agent to a specified Ar string. The default is rclone/ version (def
 .It Fl v , Fl Fl verbose count
 Print lots more stuff (repeat for more)
 .El
-
-.Ss Backend Flags
-
+.Ss Backend options
+Please see
+.Xr rclone-flags 1
+for a detailed explanation on each one of them.
 These flags are available for every command. They control the backends
 and may be set in the config file.
 .Bl -tag -width Ds
@@ -1268,7 +1270,6 @@ Or replace
 by setting
 .Ev RCLONE_DRIVE_USE_TRASH=true .
 .Pp
-
 .Ss Config file
 Likewise, options can be set in the config file, using the following syntax:
 .Pp
@@ -1281,7 +1282,7 @@ and
 are the upper case version of the remote name and the long option name (with
 .Fl
 replaced by _).
-Remates and option names can be found in the config file (default location is
+Remotes and option names can be found in the config file (default location is
 .Pa $HOME/.config/rclone/rclone.conf ,
 see the documentation about
 .Fl Fl config
@@ -1342,7 +1343,7 @@ Ev RCLONE_STATS=5s.
 .It
 Default values, e.g. 1m. These can't be changed.
 .El
-.Ss Other environment variables ###
+.Ss Other environment variables
 .Bl -tag -width MANPAGER
 .It Ev RCLONE_CONFIG_PASS
 Your config file password (see
@@ -1355,12 +1356,11 @@ takes precedence over
 .Ev HTTP_PROXY for https requests.
 The environment values may be either a complete URL or a "host[:port]" for, in which case the "http" scheme is assumed.
 .El
-
 .Ss Error codes
 During the startup phase, rclone will exit immediately if an error is
 detected in the configuration.  There will always be a log message
 immediately before exiting.
-
+.Pp
 When rclone is running it will accumulate errors as it goes along, and
 only exit with a non-zero exit code if (after retries) there were
 still failed transfers.  For every error counted there will be a high
@@ -1371,7 +1371,7 @@ which file caused the problem. A high priority message is also shown
 when starting a retry so the user can see that any previous error
 messages may not be valid after the retry. If rclone has done a retry
 it will log a high priority message if the retry was successful.
-
+.Pp
 .Bl -tag -width Ds -compact
 .It 0
 success
@@ -1420,10 +1420,10 @@ To copy files and directories from example.com in the relative
 directory path/to/dir to /tmp/dir using sftp.
 .Dl rclone copy --sftp-host example.com :sftp:path/to/dir /tmp/dir
 .Pp
-
 .Sh SEE ALSO
 .Xr rclone-config 1 ,
 .Xr rclone-filter 1 ,
+.Xr rclone-flags 1 ,
 .Xr rclone-rc 1
 .Sh AUTHOR
 .Nm
