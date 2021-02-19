@@ -11,19 +11,19 @@
 \" --option=value or --option value. However boolean (true/false)
 \" options behave slightly differently to the other options in that
 \" --boolean sets the option to true and the absence of the flag sets
-\" it to false.  It is also possible to specify --boolean=false or
-\" --boolean=true.  Note that --boolean false is not valid - this is
+\" it to false. It is also possible to specify --boolean=false or
+\" --boolean=true. Note that --boolean false is not valid - this is
 \" parsed as --boolean and the false is parsed as an extra command
 \" line argument for rclone.
 
-\" Options which use TIME use the go time parser.  A duration string is a
+\" Options which use TIME use the go time parser. A duration string is a
 \" possibly signed sequence of decimal numbers, each with optional
 \" fraction and a unit suffix, such as "300ms", "-1.5h" or "2h45m". Valid
 \" time units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
 
-\" Options which use SIZE use kByte by default.  However, a suffix of b
+\" Options which use SIZE use kByte by default. However, a suffix of b
 \" for bytes, k for kBytes, M for MBytes, G for GBytes, T for
-\" TBytes and P for PBytes may be used.  These are the binary units, e.g.
+\" TBytes and P for PBytes may be used. These are the binary units, e.g.
 \" 1, 2\*\*10, 2\*\*20, 2\*\*30 respectively.
 
 .Bl -tag -width Ds
@@ -37,15 +37,15 @@
 \" If
 \" .Fl Fl suffix
 \" is set, the moved files will have the suffix added
-\" to them.  If there is a file with the same path (after the suffix has
+\" to them. If there is a file with the same path (after the suffix has
 \" been added) in DIR, then it will be overwritten.
 \" .Pp
 \" The remote in use must support server-side move or copy and you must
-\" use the same remote as the destination of the sync.  The backup
+\" use the same remote as the destination of the sync. The backup
 \" directory must not overlap the destination directory.
 \" .It Fl Fl bind Ar string
-\" Local address to bind to for outgoing connections.  This can be an
-\" IPv4 address (1.2.3.4), an IPv6 address (1234::789A) or host name.  If
+\" Local address to bind to for outgoing connections. This can be an
+\" IPv4 address (1.2.3.4), an IPv6 address (1234::789A) or host name. If
 \" the host name doesn't resolve or resolves to more than one IP address
 \" it will give an error.
 \" .It Fl Fl bwlimit Ar bandwidth_spec
@@ -97,7 +97,7 @@
 \" Both options can be used. Note that if a schedule is provided the file will use the schedule in
 \" effect at the start of the transfer.
 \" .It Fl Fl -buffer-size Arg size
-\" Use this sized buffer to speed up file transfers.  Each
+\" Use this sized buffer to speed up file transfers. Each
 \" .Fl Fl transfer
 \" will use this much memory for buffering.
 
@@ -133,7 +133,7 @@
 \" objects to transfer is held in memory before the transfers start.
 \" .It Fl Fl checkers Ar N
 \" Number of checkers to run in parallel, default is 8. Checkers do the equality
-\" checking of files during a sync.  For some storage systems (e.g. S3,
+\" checking of files during a sync. For some storage systems (e.g. S3,
 \" Swift, Dropbox) this can take a significant amount of time so they are
 \" run in parallel.
 \" .It Fl c, Fl Fl checksum
@@ -151,31 +151,102 @@
 \" .Pp
 \" When using this flag, rclone won't update mtimes of remote files if
 \" they are incorrect as it would normally.
-.It Fl Fl compare-dest Ar dir
-When using
-.Cm sync ,
-.Cm copy
-or
-.Cm move
-.Ar dir
-is checked in addition to the
-destination for files. If a file identical to the source is found that
-file is NOT copied from source. This is useful to copy just files that
-have changed since the last backup.
+\" .It Fl Fl compare-dest Ar dir
+\" When using
+\" .Cm sync ,
+\" .Cm copy
+\" or
+\" .Cm move
+\" .Ar dir
+\" is checked in addition to the
+\" destination for files. If a file identical to the source is found that
+\" file is NOT copied from source. This is useful to copy just files that
+\" have changed since the last backup.
+\" .Pp
+\" You must use the same remote as the destination of the sync. The
+\" compare directory must not overlap the destination directory.
+\" See
+\" .Fl Fl copy-dest
+\" and
+\" .Fl Fl backup-dir .
+\" .It Fl Fl -config Ar file
+\" Override the location of the rclone config file. Default is
+\" .Pa $HOME/.config/rclone/rclone.conf
+\" (or
+\" .Pa .rclone.conf
+\" if created with an
+\" older version). If $XDG_CONFIG_HOME is set it will be at
+\" .Pa $XDG_CONFIG_HOME/rclone/rclone.conf.
+\" .Pp
+\" If there is a file
+\" .Pa rclone.conf
+\" in the same directory as the rclone
+\" executable it will be preferred. This file must be created manually
+\" for Rclone to use it, it will never be created automatically.
+\" .Pp
+\" Running
+\" .Cm rclone config file
+\" will show the default location.
+\" .It Fl Fl -contimeout Ar time
+\" Set the connection timeout, that is the amount of time rclone will wait for a
+\" connection to go through to a remote object storage system. It is 1m by
+\" default. This should be in go time format which looks like 5s for 5 seconds,
+\" 10m for 10 minutes, or 3h30m.
+\" .It Fl --copy-dest Ar dir
+\" When using
+\" .Cm sync ,
+\" .Cm copy
+\" or
+\" .Cm move,
+\" .Ar dir
+\" is checked in addition to the
+\" destination for files. If a file identical to the source is found that
+\" file is server-side copied from
+\" .Ar dir
+\" to the destination. This is useful for incremental backup.
+\" .Pp
+\" The remote in use must support server-side copy and you must
+\" use the same remote as the destination of the sync. The compare
+\" directory must not overlap the destination directory.
+\" .Pp
+\" See
+\" .Fl Fl compare-dest
+\" and
+\" .Fl Fl --backup-dir.
+\" .It Fl --dedupe-mode Ar mode
+\" Mode to run dedupe command in. Values are :
+\" .Ar interactive , Ar skip, Ar first, Ar newest, Ar oldest, Ar rename .
+\" The default is interactive. See the
+\" .Cm dedupe
+\" command for more information as to what these options mean.
+\" .It Fl --disable Ar FEATURE , Ns Ar FEATURE, Ns ...
+\" This disables a comma separated list of optional features.
+\" To see a list of which features can be disabled use
+\" .Fl Fl disable Ar help.
+\" This flag can be useful for debugging and in exceptional circumstances
+\" (e.g. Google Drive limiting the total volume of Server Side Copies to
+\" 100GB/day).
+\" .Pp
+\" For example, to disable server-side move and server-side copy use:
+\" .Fl Fl disable Ar move, Ns Ar copy .
+\" The features can be put in any case.
+.It Fl n , Fl Fl dry-run
+Do a trial run with no permanent changes. Use this to see what rclone
+would do without actually doing it. Useful when setting up the
+.Cm sync
+command which deletes files in the destination.
+.It Fl --expect-continue-timeout Ar time
+Specifies the amount of time to wait for a server's first
+response headers after fully writing the request headers if the
+request has an "Expect: 100-continue" header. Not all backends support
+using this.
 .Pp
-You must use the same remote as the destination of the sync.  The
-compare directory must not overlap the destination directory.
-See
-.Fl Fl copy-dest
-and
-.Fl Fl backup-dir .
-\" .It Fl Fl -config=CONFIG_FILE TODO
-\" .It Fl Fl -contimeout=TIME TODO
-\" .It Fl --copy-dest=DIR TODO
-\" .It Fl --dedupe-mode MODE TODO
-\" .It Fl --disable FEATURE,FEATURE,... TODO
-\" .It Fl -n, --dry-run TODO
-\" .It Fl --expect-continue-timeout=TIME TODO
+Zero means no timeout and causes the body to be sent immediately,
+without waiting for the server to approve. This time does not include
+the time to send the request header.
+.Pp
+The default is 1s.  Set to 0 to disable.
+
 \" .It Fl --error-on-no-transfer TODO
 \" .It Fl --header TODO
 \" .It Fl --header-download TODO
