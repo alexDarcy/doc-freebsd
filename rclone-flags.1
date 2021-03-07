@@ -230,89 +230,187 @@
 \" For example, to disable server-side move and server-side copy use:
 \" .Fl Fl disable Ar move, Ns Ar copy .
 \" The features can be put in any case.
-.It Fl n , Fl Fl dry-run
-Do a trial run with no permanent changes. Use this to see what rclone
-would do without actually doing it. Useful when setting up the
-.Cm sync
-command which deletes files in the destination.
-.It Fl --expect-continue-timeout Ar time
-Specifies the amount of time to wait for a server's first
-response headers after fully writing the request headers if the
-request has an "Expect: 100-continue" header. Not all backends support
-using this.
-.Pp
-Zero means no timeout and causes the body to be sent immediately,
-without waiting for the server to approve. This time does not include
-the time to send the request header.
-.Pp
-The default is 1s.  Set to 0 to disable.
-
-\" .It Fl --error-on-no-transfer TODO
-\" .It Fl --header TODO
-\" .It Fl --header-download TODO
-\" .It Fl --header-upload TODO
-\" .It Fl --ignore-case-sync TODO
-\" .It Fl --ignore-checksum TODO
-\" .It Fl --ignore-existing TODO
-\" .It Fl --ignore-size TODO
-\" .It Fl -I, --ignore-times TODO
-\" .It Fl --immutable TODO
-\" .It Fl -i / --interactive {#interactive}
-\" .It Fl --leave-root #TODO
-\" .It Fl --log-file=FILE TODO
-\" .It Fl --log-format LIST TODO
-\" .It Fl --log-level LEVEL TODO
-\" .It Fl --use-json-log TODO
-\" .It Fl --low-level-retries NUMBER TODO
-\" .It Fl --max-backlog=N TODO
-\" .It Fl --max-delete=N TODO
-\" .It Fl --max-depth=N TODO
-\" .It Fl --max-duration=TIME TODO
-\" .It Fl --max-transfer=SIZE TODO
-\" .It Fl --cutoff-mode=hard|soft|cautious TODO
-\" .It Fl --modify-window=TIME TODO
-\" .It Fl --multi-thread-cutoff=SIZE TODO
-\" .It Fl --multi-thread-streams=N TODO
-\" .It Fl --no-check-dest TODO
-\" .It Fl --no-gzip-encoding TODO
-\" .It Fl --no-traverse TODO
-\" .It Fl --no-unicode-normalization TODO
-\" .It Fl --no-update-modtime TODO
-\" .It Fl --order-by string TODO
-\" .It Fl --password-command SpaceSepList TODO
+\" .It Fl n , Fl Fl dry-run
+\" Do a trial run with no permanent changes. Use this to see what rclone
+\" would do without actually doing it. Useful when setting up the
+\" .Cm sync
+\" command which deletes files in the destination.
+\" .It Fl Fl expect-continue-timeout Ar time
+\" Specifies the amount of time to wait for a server's first
+\" response headers after fully writing the request headers if the
+\" request has an "Expect: 100-continue" header. Not all backends support
+\" using this.
+\" .Pp
+\" Zero means no timeout and causes the body to be sent immediately,
+\" without waiting for the server to approve. This time does not include
+\" the time to send the request header.
+\" .Pp
+\" The default is 1s. Set to 0 to disable.
+\" .It Fl Fl error-on-no-transfer
+\" If there are no errors, rclone will exit with return code 0.
+\" This option allows rclone to return exit code 9 if no files were transferred
+\" between the source and destination. This allows using rclone in scripts, and
+\" triggering follow-on actions if data was copied, or skipping if not.
+\" .Pp
+\" Enabling this option turns a usually non-fatal error into a potentially
+\" fatal one - please check and adjust your scripts accordingly!
+\" .It Fl Fl header
+\" Add a single HTTP header for all transactions. Can be repeated to add multiple headers. For upload/download only, see
+\" .Fl Fl header-upload
+\" and
+\" .Fl Fl header-download .
+\" This flag is supported for all HTTP based backends even those not
+\" supported by
+\" .Fl Fl header-upload
+\" and
+\" .Fl Fl header-download .
+\" .It Fl Fl header-download
+\" Like
+\" .Fl Fl header
+\" but for download only.
+\" .It Fl Fl header-upload
+\" Like
+\" .Fl Fl header
+\" but for upload only.
+\" .It Fl Fl ignore-case-sync
+\" Files will not be copied/synced when the existing filenames are the same, even if the casing is different.
+\" .It Fl ignore-checksum
+\" Disables the default checksum verification. Only use it
+\" if you have had the
+\" .Qq Corrupted on transfer
+\" error message and you are sure you
+\" might want to transfer potentially corrupted data.
+\" .It Fl Fl ignore-existing
+\" Skip all files that exist on the destination, no matter the content of these
+\" files. It can be useful in cases where your files change due to encryption.
+\" However, it cannot correct partial transfers in case a transfer was interrupted.
+\" .It Fl Fl ignore-size TODO
+\" Only check the modification time, instead of both the modification time and size of files.
+\" If
+\" .Fl Fl checksum
+\" is set then it only
+\" checks the checksum.
+\" .Pp
+\" This can be useful for transferring files to and from OneDrive which
+\" occasionally misreports the size of image files.
+\" .It Fl I, Fl Fl ignore-times
+\" Unconditionally upload all files regardless of the state of files on the destination.
+\" Normally any files with the same modification time and are the same size are skipped.
+\" .It Fl Fl immutable
+\" Treat source and destination files as immutable and disallow
+\" modification.
+\" .Pp
+\" With this option set, files will be created and deleted as requested,
+\" but existing files will never be updated. If an existing file does
+\" not match between the source and destination, rclone will give the error
+\" .Qq Source and destination exist but do not match: immutable file modified .
+\" .Pp
+\" Note that only commands which transfer files (e.g.
+\" .Cm sync ,
+\" .Cm copy ,
+\" .Cm move )
+\" are affected by this behavior, and only modification is
+\" disallowed. Files may still be deleted explicitly (e.g.
+\" .Cm delete,
+\" .Cm purge )
+\" or implicitly (e.g.
+\" .Cm sync,
+\" .Cm move ) .
+\" Use
+\" .Cm copy Fl Fl immutable
+\" if it is desired to avoid deletion as well as modification.
+\" .Pp
+\" This can be useful as an additional layer of protection for immutable
+\" or append-only data sets (notably backup archives), where modification
+\" implies corruption and should not be propagated.
+\" .It Fl i, Fl Fl interactive
+\" Ask for manual confirmation before destructive operations.
+\" It is
+\" .Em recommended
+\" that you use this flag while learning rclone, especially with
+\" .Cm sync .
+\" .It Fl Fl leave-root
+\" During
+\" .Cm rmdirs ,
+\" it will not remove root directory, even if it's empty.
+\" .It Fl Fl log-file Ar file
+\" Log all of rclone's output to
+\" .Ar file .
+\" This is not active by default.
+\" This can be useful for tracking down problems with syncs in
+\" combination with the
+\" .Fl v flag.
+\" If
+\" .Ar file
+\" exists then rclone will append to it.
+\" .Pp
+\" Note that if you are using the
+\" .Cm logrotate
+\" program to manage rclone's logs, then you should use the
+\" .Cm copytruncate
+\" option as rclone doesn't have a signal to rotate logs.
+.It Fl Fl log-format Ar list
+Comma separated list of log format options. Possible values are :
+.Qq date ,
+.Qq time ,
+.Qq microseconds ,
+.Qq longfile ,
+.Qq shortfile ,
+.Qq UTC
+The default is
+.Qq date, time .
+\" .It Fl Fl log-level LEVEL TODO
+\" .It Fl Fl use-json-log TODO
+\" .It Fl Fl low-level-retries NUMBER TODO
+\" .It Fl Fl max-backlog=N TODO
+\" .It Fl Fl max-delete=N TODO
+\" .It Fl Fl max-depth=N TODO
+\" .It Fl Fl max-duration=TIME TODO
+\" .It Fl Fl max-transfer=SIZE TODO
+\" .It Fl Fl cutoff-mode=hard|soft|cautious TODO
+\" .It Fl Fl modify-window=TIME TODO
+\" .It Fl Fl multi-thread-cutoff=SIZE TODO
+\" .It Fl Fl multi-thread-streams=N TODO
+\" .It Fl Fl no-check-dest TODO
+\" .It Fl Fl no-gzip-encoding TODO
+\" .It Fl Fl no-traverse TODO
+\" .It Fl Fl no-unicode-normalization TODO
+\" .It Fl Fl no-update-modtime TODO
+\" .It Fl Fl order-by string TODO
+\" .It Fl Fl password-command SpaceSepList TODO
 \" .It Fl -P, --progress TODO
-\" .It Fl --progress-terminal-title TODO
+\" .It Fl Fl progress-terminal-title TODO
 \" .It Fl -q, --quiet TODO
-\" .It Fl --refresh-times TODO
-\" .It Fl --retries int TODO
-\" .It Fl --retries-sleep=TIME TODO
-\" .It Fl --size-only TODO
-\" .It Fl --stats=TIME TODO
-\" .It Fl --stats-file-name-length integer TODO
-\" .It Fl --stats-log-level string TODO
-\" .It Fl --stats-one-line TODO
-\" .It Fl --stats-one-line-date TODO
-\" .It Fl --stats-one-line-date-format TODO
-\" .It Fl --stats-unit=bits|bytes TODO
-\" .It Fl --suffix=SUFFIX TODO
-\" .It Fl --suffix-keep-extension TODO
-\" .It Fl --syslog TODO
-\" .It Fl --syslog-facility string TODO
-\" .It Fl --tpslimit float TODO
-\" .It Fl --tpslimit-burst int TODO
-\" .It Fl --track-renames TODO
-\" .It Fl --track-renames-strategy (hash,modtime,leaf,size) TODO
-\" .It Fl --delete-(before,during,after) TODO
-\" .It Fl --fast-list TODO
-\" .It Fl --timeout=TIME TODO
-\" .It Fl --transfers=N TODO
+\" .It Fl Fl refresh-times TODO
+\" .It Fl Fl retries int TODO
+\" .It Fl Fl retries-sleep=TIME TODO
+\" .It Fl Fl size-only TODO
+\" .It Fl Fl stats=TIME TODO
+\" .It Fl Fl stats-file-name-length integer TODO
+\" .It Fl Fl stats-log-level string TODO
+\" .It Fl Fl stats-one-line TODO
+\" .It Fl Fl stats-one-line-date TODO
+\" .It Fl Fl stats-one-line-date-format TODO
+\" .It Fl Fl stats-unit=bits|bytes TODO
+\" .It Fl Fl suffix=SUFFIX TODO
+\" .It Fl Fl suffix-keep-extension TODO
+\" .It Fl Fl syslog TODO
+\" .It Fl Fl syslog-facility string TODO
+\" .It Fl Fl tpslimit float TODO
+\" .It Fl Fl tpslimit-burst int TODO
+\" .It Fl Fl track-renames TODO
+\" .It Fl Fl track-renames-strategy (hash,modtime,leaf,size) TODO
+\" .It Fl Fl delete-(before,during,after) TODO
+\" .It Fl Fl fast-list TODO
+\" .It Fl Fl timeout=TIME TODO
+\" .It Fl Fl transfers=N TODO
 \" .It Fl -u, --update TODO
-\" .It Fl --use-mmap TODO
-\" .It Fl --use-server-modtime TODO
+\" .It Fl Fl use-mmap TODO
+\" .It Fl Fl use-server-modtime TODO
 \" .It Fl -v, -vv, --verbose TODO
 \" .It Fl -V, --version TODO
-\" .It Fl --ca-cert string
-\" .It Fl --client-cert string
-\" .It Fl --client-key string
-\" .It Fl --no-check-certificate=true/false TODO
+\" .It Fl Fl ca-cert string
+\" .It Fl Fl client-cert string
+\" .It Fl Fl client-key string
+\" .It Fl Fl no-check-certificate=true/false TODO
 .El
